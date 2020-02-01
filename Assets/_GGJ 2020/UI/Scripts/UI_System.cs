@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class UI_System : MonoBehaviour
 {
 	
-	public Image[] customersUI;
-	public int nCustomers = 0;
+	Image[] customersUI;
+	int nCustomers = 0;
 	public Sprite placeHolder;
 	
     void Start()
