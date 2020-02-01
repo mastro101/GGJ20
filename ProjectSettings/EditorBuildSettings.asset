@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/_GGJ 2020/Scene/StartMenu.unity
+    guid: cf1e65d8d6376c8489f94e61f8311827
+  - enabled: 1
+    path: Assets/_GGJ 2020/Scene/TestScene.unity
+    guid: d3997d2bfc09bdb46ab2d96943476f81
   m_configObjects: {}
