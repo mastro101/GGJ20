@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-
-public class UI_System : MonoBehaviour
+public class CustomerIconsUI : MonoBehaviour
 {
 	
 	Image[] customersUI;
@@ -12,22 +12,22 @@ public class UI_System : MonoBehaviour
 	
     void Start()
     {
-        customersUI = new Image[6];
-		for(int i=0; i<6; i++) {
+        customersUI = new Image[5];
+		for(int i=0; i<5; i++) {
 			customersUI[i] = GameObject.Find("customer"+i.ToString()).GetComponent<Image>();
 		}
     }
 
     void FixedUpdate()
     {
-        int newNCustomers=GameObject.Find("Customers").GetComponent<CustomersQueue>().customers.Count;
+        int newNCustomers=GameObject.Find("GameManager").GetComponent<CustomersQueue>().customers.Count;
 		if(newNCustomers!=nCustomers) {
-			for(int j=0; j<6; j++) {
+			for(int j=0; j<5; j++) {
 				if(j>=(newNCustomers)) {
 					customersUI[j] = null;
 				}
 				else {
-					//customersUI.sprite = GameObject.Find("Customers").GetComponent<CustomersQueue>().customers[j].customerIcon;
+					//customersUI[j].sprite = GameObject.Find("Customers").GetComponent<CustomersQueue>().customers[j].customerIcon;
 					customersUI[j].sprite = placeHolder;
 				}
 			}

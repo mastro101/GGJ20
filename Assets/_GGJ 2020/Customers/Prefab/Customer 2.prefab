@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4016673217600321676
 Transform:
   m_ObjectHideFlags: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_Size: {x: 7.56, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1535544961940863239
@@ -94,7 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67588340b9ca3ca449851b1e40f5cb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordPrefab: {fileID: 1289579319861563558, guid: a4bd0a0bd9f43cd458b7f3ed88c7aea3,
+  weaponPrefab: {fileID: 3716231836805313938, guid: 4d18c8059232de741b61be2b802beb6a,
     type: 3}
   customerIcon: {fileID: 0}
   difficult: 2
+  currentSword: {fileID: 0}

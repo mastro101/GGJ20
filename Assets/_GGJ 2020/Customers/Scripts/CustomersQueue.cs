@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class CustomersQueue : MonoBehaviour
 {
-    [SerializeField] Transform swordSpawnPoint;
-    [SerializeField][Tooltip("è moltiplicato per la difficoltà della spada")] float timeForNextCustomer = 1;
+    [SerializeField] Transform weaponSpawnPoint;
+    public CustomerIconsUI customerIconsUI;
+    
+    [SerializeField]
+    [Tooltip("è moltiplicato per la difficoltà della spada")] 
+    float timeForNextCustomer = 1;
 
-    public List<Customers> customers = new List<Customers>();
+    public List<Customer> customers = new List<Customer>();
     [HideInInspector] public float timer;
 
-    Customers oldCustomer = null;
+    Customer oldCustomer = null;
     bool first;
 
     private void Awake()
@@ -21,75 +25,68 @@ public class CustomersQueue : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("CIAO");
             NextCustomer();
-            SpawnSword();
-        }
     }
 
-    public Customers AddCustomer()
+    public Customer AddCustomer()
     {
-        Customers _customer = null;
+        Customer customer = null;
         int randomInt = 1;
         int l = 10;
         for (int i = 0; i < l; i++)
         {
             randomInt = Random.Range(1, customers.Count + 1);
-            _customer = PoolManager.SharedInstance.GetPooledObjectWithoutInstantiate("Customer" + randomInt).GetComponent<Customers>();
+            customer = PoolManager.SharedInstance.GetPooledObjectWithoutInstantiate("Customer" + randomInt).GetComponent<Customer>();
             if (oldCustomer != null)
             {
-                if (oldCustomer.difficult == _customer.difficult)
+                if (oldCustomer.difficult == customer.difficult)
                 {
                     if (i == l - 1)
-                        _customer = PoolManager.SharedInstance.GetPooledObject("Customer1").GetComponent<Customers>();
+                        customer = PoolManager.SharedInstance.GetPooledObject("Customer1").GetComponent<Customer>();
                     continue;
                 }
                 else
                 {
-                    _customer = PoolManager.SharedInstance.GetPooledObject("Customer" + randomInt).GetComponent<Customers>();
+                    customer = PoolManager.SharedInstance.GetPooledObject("Customer" + randomInt).GetComponent<Customer>();
                     break;
                 }
             }
         }
 
-        _customer.gameObject.SetActive(true);
-        oldCustomer = _customer;
-        customers.Add(_customer);
-        Debug.Log(customers);
+        customer.gameObject.SetActive(true);
+        SpawnSword(customer);
+        customer.currentSword.gameObject.SetActive(true);
+        oldCustomer = customer;
+        customers.Add(customer);
+  
         if (corutineNextCustomer != null)
             StopCoroutine(corutineNextCustomer);
         corutineNextCustomer = CorutineNextCustomer();
         StartCoroutine(corutineNextCustomer);
-        return _customer;
+        return customer;
     }
 
-    public SwordMovement SpawnSword()
+    public void SpawnSword(Customer customer)
     {
-        return customers[0].InstantiateSword(swordSpawnPoint.position);
+        customer.InstantiateSword(weaponSpawnPoint.position);
+        customer.currentSword.gameObject.SetActive(false);
     }
 
-    public Customers NextCustomer()
+    public Customer NextCustomer()
     {
-        if (customers.Count == 1)
-        {
+        if(customers.Count == 0 || customers.Count == 1)
             AddCustomer();
-        }
-        else if(customers.Count == 0)
-        {
-            AddCustomer();
-        }
 
         if (first)
         {
             first = false;
             return customers[0];
         }
-        Customers _customer = customers[0];
-        Destroy(_customer.currentSword.gameObject);
+        Customer lastCustomer = customers[0];
+        lastCustomer.currentSword.gameObject.SetActive(false);
         customers.Remove(customers[0]);
-        _customer.transform.SetParent(null);
-        _customer.gameObject.SetActive(false);
+        lastCustomer.transform.SetParent(null);
+        lastCustomer.gameObject.SetActive(false);
         return customers[0];
     }
 
@@ -104,14 +101,4 @@ public class CustomersQueue : MonoBehaviour
         }
         AddCustomer();
     }
-
-    //IEnumerator corutineCheckNextCustomer;
-    //IEnumerator CorutineCheckNextCustomer()
-    //{
-    //    while (customers.Count == 0)
-    //    {
-    //        yield return null;
-    //    }
-    //    NextCustomer();
-    //}
 }

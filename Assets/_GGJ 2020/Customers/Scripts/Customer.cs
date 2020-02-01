@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Customers : MonoBehaviour
+public class Customer : MonoBehaviour
 {
-    [SerializeField] SwordMovement swordPrefab;
+    [SerializeField] SwordMovement weaponPrefab;
     public Sprite customerIcon;
     // Temporaneamente pubblico finchè non sarà calcolata dai valori della spada
     public int difficult;
@@ -13,7 +13,8 @@ public class Customers : MonoBehaviour
 
     public SwordMovement InstantiateSword(Vector2 spawnPosition)
     {
-        currentSword = Instantiate(swordPrefab, spawnPosition, Quaternion.identity).GetComponent<SwordMovement>();
+        var weaponInfo=weaponPrefab.GetComponent<WeaponInfo>();
+        currentSword = Instantiate(weaponPrefab, spawnPosition+weaponInfo.offset, Quaternion.identity).GetComponent<SwordMovement>();
         return currentSword;
     }
 }

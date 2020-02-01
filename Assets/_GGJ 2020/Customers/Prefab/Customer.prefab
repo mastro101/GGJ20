@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4937375060121580481
 Transform:
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67588340b9ca3ca449851b1e40f5cb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordPrefab: {fileID: 3716231836805313938, guid: 4d18c8059232de741b61be2b802beb6a,
+  weaponPrefab: {fileID: 3716231836805313938, guid: 4d18c8059232de741b61be2b802beb6a,
     type: 3}
   customerIcon: {fileID: 0}
   difficult: 1

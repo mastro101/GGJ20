@@ -10,22 +10,18 @@ public class PauseSystem : MonoBehaviour
 	public GameObject winMenu, loseMenu;
 	
     void Start()
-    {
-        pauseMenu=GameObject.Find("Pause Menu");
-		PauseGame(false);
-		winMenu=GameObject.Find("Win Menu");
-		loseMenu=GameObject.Find("Lose Menu");
-		
+    {       
+		PauseGame(false);	
 		winMenu.SetActive(false);
 		loseMenu.SetActive(false);
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)) {
-			pause = !pause;
-			PauseGame(pause);
-		}
+        // if(Input.GetKeyDown(KeyCode.Space)) {
+		// 	pause = !pause;
+		// 	PauseGame(pause);
+		// }
 		
 		if(Input.GetKeyDown(KeyCode.A)) {
 			WinGame();
