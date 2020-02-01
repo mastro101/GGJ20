@@ -61,20 +61,24 @@ public class ChargeManager : MonoBehaviour
     private float timeFromStart=0;
     void Update()
     {
+        Debug.Log(Input.GetAxis("Vertical1"));
+
         if(isAttacking) return;
 
-        if(Input.GetAxis("Vertical1")<0){    
+        
+
+        if(Input.GetAxis("Vertical1")<-0.1){    
            timeFromStart+=Time.deltaTime;
            ChangeAnimation();
-        }else if(Input.GetAxis("Vertical1")==0){
+        }else{
             if(timeFromStart>=macroAnimations[0].GetTime()){
                 Debug.Log("STOP ALL");
                 StopAllCoroutines();
                 StartCoroutine(HitAndReset());
-            }
-        }else{
-            Reset();
-        }      
+            }else{
+                Reset();
+            }      
+        }
     }
 
     private void ChangeAnimation(){

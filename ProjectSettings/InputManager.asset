@@ -227,7 +227,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 1
+    axis: 2
     joyNum: 1
   - serializedVersion: 3
     m_Name: Vertical2
