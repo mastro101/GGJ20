@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class TargetSpawner : MonoBehaviour
 {
     private List<GameObject> targets;
@@ -70,15 +70,12 @@ public class TargetSpawner : MonoBehaviour
     }
 
     int RandomRangeExcept(int min, int max, int except=-1)  {
-        int number=0;
-        if(except!=-1){
-            do {
-                number = Random.Range(min,max);
-            } while (number != except);
-        }else{
-            number = Random.Range(min,max);
-        }        
-        return number;
+        var exclude = new HashSet<int>() { except };
+        var range = Enumerable.Range(min, max).Where(i => !exclude.Contains(i));
+
+        var rand = new System.Random();
+        int index = rand.Next(0, max - exclude.Count);
+        return range.ElementAt(index);
     }
 
     // Update is called once per frame

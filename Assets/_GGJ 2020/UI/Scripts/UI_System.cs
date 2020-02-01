@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class UI_System : MonoBehaviour
 {
@@ -24,7 +24,7 @@ public class UI_System : MonoBehaviour
 		if(newNCustomers!=nCustomers) {
 			for(int j=0; j<6; j++) {
 				if(j>=(newNCustomers)) {
-					customersUI[j].sprite = null;
+					customersUI[j] = null;
 				}
 				else {
 					//customersUI.sprite = GameObject.Find("Customers").GetComponent<CustomersQueue>().customers[j].customerIcon;

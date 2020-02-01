@@ -87,11 +87,4 @@ public class CameraShake : MonoBehaviour
         
     }
 
-    private void Update() {
-        if(Input.GetKey(KeyCode.Space)){
-            StartXShake();
-            StartYShake();
-        }
-    }
-
 }

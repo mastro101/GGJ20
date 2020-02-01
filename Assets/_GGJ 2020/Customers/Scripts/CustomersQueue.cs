@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CustomersQueue : MonoBehaviour
 {
-    [SerializeField] Transform CustomerBox;
-    [SerializeField] int DifferentCustomers;
     [SerializeField] Transform swordSpawnPoint;
     [SerializeField][Tooltip("è moltiplicato per la difficoltà della spada")] float timeForNextCustomer = 1;
 
@@ -24,6 +22,7 @@ public class CustomersQueue : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("CIAO");
             NextCustomer();
             SpawnSword();
         }
@@ -36,7 +35,7 @@ public class CustomersQueue : MonoBehaviour
         int l = 10;
         for (int i = 0; i < l; i++)
         {
-            randomInt = Random.Range(1, DifferentCustomers + 1);
+            randomInt = Random.Range(1, customers.Count + 1);
             _customer = PoolManager.SharedInstance.GetPooledObjectWithoutInstantiate("Customer" + randomInt).GetComponent<Customers>();
             if (oldCustomer != null)
             {
@@ -53,11 +52,11 @@ public class CustomersQueue : MonoBehaviour
                 }
             }
         }
-        _customer.transform.SetParent(CustomerBox);
+
         _customer.gameObject.SetActive(true);
         oldCustomer = _customer;
         customers.Add(_customer);
-
+        Debug.Log(customers);
         if (corutineNextCustomer != null)
             StopCoroutine(corutineNextCustomer);
         corutineNextCustomer = CorutineNextCustomer();

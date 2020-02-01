@@ -19,6 +19,7 @@ public class HitManager : MonoBehaviour
     }
 
     public void OnHit(){
+        if(activeTargetSpawner==null) return;
         var target = activeTargetSpawner.GetActiveTarget();     
         
         if(PointInsideHitArea(target.transform.position)){
