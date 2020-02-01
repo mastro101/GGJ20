@@ -14,6 +14,14 @@ public class ChargeManager : MonoBehaviour
 
     // private float status=0;
 
+    // [System.Serializable]
+    // public class MacroAnimation
+    // {
+    //     public float speed;
+    //     public List<Sprite> sequences;
+    //     public bool isPlaying;
+    // }
+
     public Sprite HitSprite;
     public Sprite IdleSprite;
     public float timeBetweenHit;
@@ -26,8 +34,11 @@ public class ChargeManager : MonoBehaviour
     private SpriteRenderer spriteRenderer; 
 
     private int step=0;
+
+    private HitManager hitManager;
     void Start()
     {
+        hitManager=HitManager.SharedInstance;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -79,6 +90,7 @@ public class ChargeManager : MonoBehaviour
     private IEnumerator HitAndReset(){
         isAttacking=true;
         spriteRenderer.sprite=HitSprite;
+        hitManager.OnHit();
         yield return new WaitForSeconds(timeBetweenHit);  
         Reset();
         isAttacking=false;

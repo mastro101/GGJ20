@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class TargetInfo : MonoBehaviour
 {
-    public float Intensity;
+    private int Intensity;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
 
-    float GetIntensity(){
+    public void SetIntensity(int value){
+        Intensity=value;
+    }
+
+    public int GetIntensity(){
         return Intensity;
     }
 }
