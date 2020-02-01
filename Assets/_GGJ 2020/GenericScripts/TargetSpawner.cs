@@ -11,7 +11,7 @@ public class TargetSpawner : MonoBehaviour
     private GameObject Player;
 
     void Start()
-    {
+    {        
         HitManager.SharedInstance.SetTargetSpawner(this);
         Player=GameObject.FindGameObjectWithTag("Player");
 
@@ -82,8 +82,4 @@ public class TargetSpawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

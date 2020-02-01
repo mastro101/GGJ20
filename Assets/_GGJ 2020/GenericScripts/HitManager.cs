@@ -19,7 +19,8 @@ public class HitManager : MonoBehaviour
     }
 
     public void OnHit(){
-        var target = activeTargetSpawner.GetActiveTarget();      
+        var target = activeTargetSpawner.GetActiveTarget();     
+        
         if(PointInsideHitArea(target.transform.position)){
             Debug.Log("COLPITO");
         }else{
