@@ -6,7 +6,7 @@ public class PauseSystem : MonoBehaviour
 {
 	
 	public GameObject pauseMenu;
-	public bool pause = false;
+	bool pause = false;
 	public GameObject winMenu, loseMenu;
 	
     void Start()
