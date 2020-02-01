@@ -6,7 +6,7 @@ public class HitManager : MonoBehaviour
 {
     public static HitManager SharedInstance;
     public float hitRange;
-
+    public CameraShake cameraShake;
     private TargetSpawner activeTargetSpawner;
 
     public void SetTargetSpawner(TargetSpawner targetSpawner){
@@ -26,7 +26,9 @@ public class HitManager : MonoBehaviour
         }else{
             Debug.Log("MISS");
         }
-
+        
+        cameraShake.StartXShake();
+        cameraShake.StartYShake();
         activeTargetSpawner.SpawnAfterDelay(1);
     }
 

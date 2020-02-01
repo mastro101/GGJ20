@@ -41,6 +41,8 @@ public class ChargeManager : MonoBehaviour
         }
     }
 
+    public EffectManager hitEffect;
+
     public MacroAnimation MacroHit;
     public Sprite IdleSprite;
     public float timeBetweenHit;
@@ -49,9 +51,10 @@ public class ChargeManager : MonoBehaviour
 
     private SpriteRenderer spriteRenderer; 
 
-    private int step=0;
+    public int step=0;
 
     private HitManager hitManager;
+    
     void Start()
     {
         hitManager=HitManager.SharedInstance;
@@ -59,25 +62,23 @@ public class ChargeManager : MonoBehaviour
     }
 
     private float timeFromStart=0;
+    private bool sequenceStarted=true;
     void Update()
     {
-        Debug.Log(Input.GetAxis("Vertical1"));
+        if(isAttacking) 
+        return;
 
-        if(isAttacking) return;
-
-        
-
-        if(Input.GetAxis("Vertical1")<-0.1){    
-           timeFromStart+=Time.deltaTime;
-           ChangeAnimation();
-        }else{
-            if(timeFromStart>=macroAnimations[0].GetTime()){
-                Debug.Log("STOP ALL");
-                StopAllCoroutines();
+        if(Mathf.Floor(Input.GetAxis("Vertical1"))==-1){    
+            if(!sequenceStarted)
+                sequenceStarted=true;           
+            timeFromStart+=Time.deltaTime;
+            ChangeAnimation();
+        }else if(sequenceStarted){
+            StopAllCoroutines();
+            if(timeFromStart>=macroAnimations[0].GetTime())                     
                 StartCoroutine(HitAndReset());
-            }else{
+            else          
                 Reset();
-            }      
         }
     }
 
@@ -96,16 +97,20 @@ public class ChargeManager : MonoBehaviour
         macroAnimation.Start();
         float macroAnimationTime=0;
 
-        do{
+        while(true){
             macroAnimationTime+=Time.deltaTime;
             
             if(macroAnimationTime>=macroAnimation.speed){
                 spriteRenderer.sprite=macroAnimation.GetCurrentSequence();
                 macroAnimationTime-=macroAnimation.speed;
-            }
+            }else if(macroAnimationTime>=macroAnimation.GetTime())
+                break;
 
-            yield return null;
-        }while(!macroAnimation.HasEnded);
+            if(macroAnimation.HasEnded)
+                break;
+            else
+                yield return null;
+        }
 
         step++;
         macroAnimation.isPlaying=false;
@@ -114,7 +119,17 @@ public class ChargeManager : MonoBehaviour
     bool isAttacking=false;
     private IEnumerator HitAndReset(){
         isAttacking=true;
-       
+
+        
+        yield return PlayHitAnimation();
+        yield return new WaitForSeconds(timeBetweenHit);  
+        
+        isAttacking=false;
+        Reset();
+    }
+
+
+    private IEnumerator PlayHitAnimation(){
         MacroHit.Reset();
         MacroHit.Start();
         float macroAnimationTime=0;
@@ -124,6 +139,7 @@ public class ChargeManager : MonoBehaviour
             
             if(macroAnimationTime>=MacroHit.speed){
                 if(counter==0) hitManager.OnHit();
+                if(counter==1) hitEffect.Play();
                 spriteRenderer.sprite=MacroHit.GetCurrentSequence();
                 macroAnimationTime-=MacroHit.speed;
 
@@ -133,17 +149,15 @@ public class ChargeManager : MonoBehaviour
             yield return null;
         }while(!MacroHit.HasEnded);
         MacroHit.isPlaying=false;
-
-        yield return new WaitForSeconds(timeBetweenHit);  
-       
-        isAttacking=false;
-        Reset();
     }
-
     private void Reset(){
-        Debug.Log("RESET");
         timeFromStart=0;
         step=0;
+        sequenceStarted=false;
         spriteRenderer.sprite=IdleSprite;
+
+        foreach(var macroAnimation in macroAnimations){
+            macroAnimation.Reset();
+        }
     } 
 }
