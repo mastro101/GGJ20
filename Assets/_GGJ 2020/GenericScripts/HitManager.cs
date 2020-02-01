@@ -9,6 +9,8 @@ public class HitManager : MonoBehaviour
     public CameraShake cameraShake;
     private TargetSpawner activeTargetSpawner;
 
+    public System.Action<WeaponInfo> OnCorrectHit;
+
     public void SetTargetSpawner(TargetSpawner targetSpawner){
         activeTargetSpawner=targetSpawner;
     }
