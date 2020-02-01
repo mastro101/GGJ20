@@ -65,6 +65,24 @@ public class PoolManager : MonoBehaviour
         return null;
     }
 
+    public GameObject GetPooledObjectWithoutInstantiate(string tag)
+    {
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            if (pooledObjects[i].tag == tag)
+            {
+                return pooledObjects[i];
+            }
+        }
+        return null;
+    }
+
+    //public GameObject GetRandomPooledObject(string tag)
+    //{
+    //    ListUtility.Shuffle(pooledObjects);
+    //    return GetPooledObject(tag);
+    //}
+
     // private void ResetObject(GameObject go){
     //     go.transform.position = go.originalPosition.position;
     //     go.transform.rotation = go.originalPosition.rotation;
