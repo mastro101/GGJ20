@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SwordMovement : MonoBehaviour
 {
-    public int controllerInput;
-
     private bool isMoving;
     Vector2 direction;
     float startingPos;
@@ -28,37 +26,28 @@ public class SwordMovement : MonoBehaviour
     }
   
     void Update()
-    {
-        Vector2 stickDirection;
-        if (controllerInput != 0)
-        {
-            stickDirection = new Vector2(Input.GetAxis("Horizontal" + controllerInput.ToString()), Input.GetAxis("Vertical" + controllerInput.ToString()));
-        }
-        else
-        {
-            stickDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        }
-
-        HandleMovement(stickDirection.normalized);
+    {    
+        var stickDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        HandleMovement(stickDirection);
     }
 
     void HandleMovement(Vector2 stickDirection){
         if(stickDirection.x!=0 && !isMoving){
-            isMoving=true;
-
             var currentPos=Mathf.Abs(transform.position.x);
             if(currentPos>=maxRangeLeft && currentPos<=maxRangeRight){
-                if(stickDirection.x>0 && (currentPos+(range/steps))<maxRangeRight)
+                if(stickDirection.x>0.5f && (currentPos+(range/steps))<maxRangeRight){
                     MovementHandler((range/steps));
-
-                if(stickDirection.x<0 && (currentPos-(range/steps))>maxRangeLeft)
+                    StartCoroutine(AllowNextMovement());
+                }else if(stickDirection.x<-0.5f && (currentPos-(range/steps))>maxRangeLeft){
                     MovementHandler(-(range/steps));
-            }
-            StartCoroutine(AllowNextMovement());
+                    StartCoroutine(AllowNextMovement());
+                }                   
+            }           
         }
     }
 
     private IEnumerator AllowNextMovement(){
+        isMoving=true;
         yield return new WaitForSeconds(timeBeforeNextMovement);  
         isMoving=false;
     }

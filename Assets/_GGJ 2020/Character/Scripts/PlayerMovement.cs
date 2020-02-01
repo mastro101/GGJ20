@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Component")]
-    [SerializeField] Rigidbody2D rigidbody2D;
-    [Space]
-    [Header("Data")]
-    [SerializeField] float speed;
+    public float speed;
 
     public int controllerInput;
 
     Vector2 direction;
+    private Rigidbody2D rb2D;
+    
+    private void Start() {
+       rb2D=GetComponent<Rigidbody2D>();
+    }
 
     private void Update()
     {
@@ -39,6 +40,6 @@ public class PlayerMovement : MonoBehaviour
 
     void MovementHandler()
     {
-        rigidbody2D.MovePosition(Vector2Utility.ConvertV3InV2(transform.position) + MovementVelocity());
+        rb2D.MovePosition(Vector2Utility.ConvertV3InV2(transform.position) + MovementVelocity());
     }
 }
