@@ -64,8 +64,10 @@ public class ChargeManager : MonoBehaviour
     }
 
     private void ChangeAnimation(){
+        if(step>=sequences.Count) 
+            return;
 
-        if(timeBetweenCharge>=timesForAnim[step] && step<4){
+        if(timeBetweenCharge>=timesForAnim[step]){
              spriteRenderer.sprite=sequences[1+(step-1)];
              step++;
              timeBetweenCharge-=timeBetweenAnim;

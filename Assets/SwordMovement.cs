@@ -5,24 +5,20 @@ using UnityEngine;
 public class SwordMovement : MonoBehaviour
 {
     private bool isMoving;
-    Vector2 direction;
     float startingPos;
 
     public float range;
     public float steps;
 
-    private float maxRangeLeft;
-    private float maxRangeRight;
-
     public float timeBeforeNextMovement=0;
-    private Rigidbody2D rb2D;
 
+    private float LeftLimit;
+    private float RightLimit;
     void Start()
     {
         startingPos=transform.position.x;
-        maxRangeLeft=(startingPos-range/2);
-        maxRangeRight=(startingPos+range/2);
-        rb2D=GetComponent<Rigidbody2D>();
+        LeftLimit=startingPos-range;
+        RightLimit=startingPos;
     }
   
     void Update()
@@ -31,14 +27,15 @@ public class SwordMovement : MonoBehaviour
         HandleMovement(stickDirection);
     }
 
+
     void HandleMovement(Vector2 stickDirection){
         if(stickDirection.x!=0 && !isMoving){
-            var currentPos=Mathf.Abs(transform.position.x);
-            if(currentPos>=maxRangeLeft && currentPos<=maxRangeRight){
-                if(stickDirection.x>0.5f && (currentPos+(range/steps))<maxRangeRight){
+            var currentPos=transform.position.x;
+            if(currentPos>=LeftLimit && currentPos<=RightLimit){
+                if(stickDirection.x>0.5f && (currentPos+(range/steps))<=RightLimit){
                     MovementHandler((range/steps));
                     StartCoroutine(AllowNextMovement());
-                }else if(stickDirection.x<-0.5f && (currentPos-(range/steps))>maxRangeLeft){
+                }else if(stickDirection.x<-0.5f && (currentPos-(range/steps))>=LeftLimit){
                     MovementHandler(-(range/steps));
                     StartCoroutine(AllowNextMovement());
                 }                   
@@ -54,8 +51,7 @@ public class SwordMovement : MonoBehaviour
 
     void MovementHandler(float moveAmount)
     {
-        Vector2 xMovement=new Vector2(moveAmount,0);
-        rb2D.MovePosition(Vector2Utility.ConvertV3InV2(transform.position) + xMovement);
+        transform.position+=new Vector3(moveAmount,0,0);
     }   
     
 }
