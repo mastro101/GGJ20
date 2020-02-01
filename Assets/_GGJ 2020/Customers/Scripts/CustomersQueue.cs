@@ -7,50 +7,62 @@ public class CustomersQueue : MonoBehaviour
     [SerializeField] Transform CustomerBox;
     [SerializeField] int DifferentCustomers;
     [SerializeField] Transform swordSpawnPoint;
+    [SerializeField][Tooltip("è moltiplicato per la difficoltà della spada")] float timeForNextCustomer = 1;
 
-    List<Customers> customers = new List<Customers>();
+    public List<Customers> customers = new List<Customers>();
+    [HideInInspector] public float timer;
 
-    public System.Action<Customers> onAddCustomers;
+    Customers oldCustomer = null;
+    bool first;
 
-    int oldCustomerDifficult = -1;
+    private void Awake()
+    {
+        first = true;
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            AddCustomer();
+            NextCustomer();
             SpawnSword();
         }
     }
 
-    public void AddCustomer()
+    public Customers AddCustomer()
     {
         Customers _customer = null;
         int randomInt = 1;
-        for (int i = 0; i < 10; i++)
+        int l = 10;
+        for (int i = 0; i < l; i++)
         {
             randomInt = Random.Range(1, DifferentCustomers + 1);
             _customer = PoolManager.SharedInstance.GetPooledObjectWithoutInstantiate("Customer" + randomInt).GetComponent<Customers>();
-            if (oldCustomerDifficult == _customer.difficult)
+            if (oldCustomer != null)
             {
-                continue;
+                if (oldCustomer.difficult == _customer.difficult)
+                {
+                    if (i == l - 1)
+                        _customer = PoolManager.SharedInstance.GetPooledObject("Customer1").GetComponent<Customers>();
+                    continue;
+                }
+                else
+                {
+                    _customer = PoolManager.SharedInstance.GetPooledObject("Customer" + randomInt).GetComponent<Customers>();
+                    break;
+                }
             }
-            else
-            {
-                _customer = PoolManager.SharedInstance.GetPooledObject("Customer" + randomInt).GetComponent<Customers>();
-                break;
-            }
-
         }
         _customer.transform.SetParent(CustomerBox);
-        onAddCustomers?.Invoke(_customer.GetComponent<Customers>());
-        oldCustomerDifficult = randomInt;
+        _customer.gameObject.SetActive(true);
+        oldCustomer = _customer;
         customers.Add(_customer);
-    }
 
-    public Customers GetCustomers()
-    {
-        return customers[0];
+        if (corutineNextCustomer != null)
+            StopCoroutine(corutineNextCustomer);
+        corutineNextCustomer = CorutineNextCustomer();
+        StartCoroutine(corutineNextCustomer);
+        return _customer;
     }
 
     public SwordMovement SpawnSword()
@@ -60,9 +72,47 @@ public class CustomersQueue : MonoBehaviour
 
     public Customers NextCustomer()
     {
-        GameObject _customer = customers[0].gameObject;
+        if (customers.Count == 1)
+        {
+            AddCustomer();
+        }
+        else if(customers.Count == 0)
+        {
+            AddCustomer();
+        }
+
+        if (first)
+        {
+            first = false;
+            return customers[0];
+        }
+        Customers _customer = customers[0];
+        Destroy(_customer.currentSword.gameObject);
         customers.Remove(customers[0]);
-        Destroy(_customer);
+        _customer.transform.SetParent(null);
+        _customer.gameObject.SetActive(false);
         return customers[0];
     }
+
+    IEnumerator corutineNextCustomer;
+    IEnumerator CorutineNextCustomer()
+    {
+        timer = timeForNextCustomer * oldCustomer.difficult;
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+        AddCustomer();
+    }
+
+    //IEnumerator corutineCheckNextCustomer;
+    //IEnumerator CorutineCheckNextCustomer()
+    //{
+    //    while (customers.Count == 0)
+    //    {
+    //        yield return null;
+    //    }
+    //    NextCustomer();
+    //}
 }

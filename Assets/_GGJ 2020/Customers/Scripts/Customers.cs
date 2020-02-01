@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Customers : MonoBehaviour
 {
-    public SwordMovement swordPrefab;
+    [SerializeField] SwordMovement swordPrefab;
     public Sprite customerIcon;
+    // Temporaneamente pubblico finchè non sarà calcolata dai valori della spada
     public int difficult;
+    //
+    [HideInInspector] public SwordMovement currentSword;
 
     public SwordMovement InstantiateSword(Vector2 spawnPosition)
     {
-        return Instantiate(swordPrefab, spawnPosition, Quaternion.identity).GetComponent<SwordMovement>();
+        currentSword = Instantiate(swordPrefab, spawnPosition, Quaternion.identity).GetComponent<SwordMovement>();
+        return currentSword;
     }
 }
