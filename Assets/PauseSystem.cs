@@ -9,15 +9,11 @@ public class PauseSystem : MonoBehaviour
 	bool pause = false;
 	public GameObject winMenu, loseMenu;
 	
-	private SoundManager soundManager;
-	
     void Start()
     {       
 		PauseGame(false);	
 		winMenu.SetActive(false);
 		loseMenu.SetActive(false);
-		
-		soundManager=GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     void Update()
@@ -51,14 +47,10 @@ public class PauseSystem : MonoBehaviour
 	public void WinGame() {
 		Time.timeScale = 0f;
 		winMenu.SetActive(true);
-		int nSuono = Random.Range(0,1);
-		if(nSuono==0) soundManager.Play("Vittoria1");
-		else soundManager.Play("Vittoria2");
 	}
 	
 	public void LoseGame() {
 		Time.timeScale=0f;
 		loseMenu.SetActive(true);
-		soundManager.Play("Sconfitta");
 	}
 }
