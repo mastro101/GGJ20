@@ -30,7 +30,7 @@ public class CustomersQueue : MonoBehaviour
 		var randomInt = fixedCustomerToSpawn!=0? fixedCustomerToSpawn:RandomRangeExcept(1,2,prevType);
 
         var customer = PoolManager.SharedInstance.GetPooledObject("Customer" + randomInt).GetComponent<Customer>();
-        customer.ActivateWithoutSword();
+        customer.Activate();
         prevType=customer.GetDifficulty();
 
 		customers.Add(customer);
@@ -57,7 +57,7 @@ public class CustomersQueue : MonoBehaviour
 
     public Customer ServeCustomer(){
         var customer=customers.Last();
-        customer.Activate(weaponSpawnPoint.position);
+        customer.ActivateAll(weaponSpawnPoint.position);
         return customer;
     }
 
