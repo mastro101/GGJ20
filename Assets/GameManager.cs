@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void GetNextCustomer(){
 		
-		StartCoroutine(PlayEpicPhraseAnimation);
+		//StartCoroutine(PlayEpicPhraseAnimation);
 		
         var customer=CustomersQueue.ServeCustomer();
         var weaponInfo=customer.GetWeapon().GetComponent<WeaponInfo>();
