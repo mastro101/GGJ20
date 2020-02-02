@@ -37,14 +37,17 @@ public class GameManager : MonoBehaviour
             CustomersQueue.FillCustomers();
 
         if(Input.GetKeyDown(KeyCode.I))
+        {
+            isPlaying = true;
             GetNextCustomer();
+        }
     }
 
     public IEnumerator StartTimer(){
         float timer=durationOfGameInSecond;
         while(isPlaying){
             timer -= Time.deltaTime;
-            int seconds = (int)(timer);
+            int seconds = (int)Mathf.Floor(timer);
             timerUI.SetTimerText(seconds);
             currentTime = timer;
             if (currentTime < 0)

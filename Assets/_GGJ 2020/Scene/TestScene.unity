@@ -406,10 +406,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4c42ae6e422106409b1d1140cd0c7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  durationOfGameInSecond: 25
   coinUI: {fileID: 323068397}
   weaponLifeUI: {fileID: 442083514}
+  pauseSystem: {fileID: 915720506}
   soundManager: {fileID: 1567199859}
   CustomersQueue: {fileID: 739104160}
+  currentTime: 0
   timerUI: {fileID: 1010784104}
 --- !u!4 &482831191
 Transform:
