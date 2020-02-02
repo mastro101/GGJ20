@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class HitManager : MonoBehaviour
 {
+    public EffectManager hitEffect;
+    public EffectManager thunderEffect;
     public WeaponLifeUI weaponLifeUI;
     public static HitManager SharedInstance;
     public float hitRange;
@@ -43,18 +45,27 @@ public class HitManager : MonoBehaviour
         
         cameraShake.StartXShake();
         cameraShake.StartYShake();
-
+        
+        
         var target = activeTargetSpawner.GetActiveTarget();     
 
         if(PointInsideHitArea(target.transform.position)){
             Debug.Log("COLPITO");
-			
+			thunderEffect.Play();
+
+            var glow=weapon.GetComponent<GlowShaderController>();
+            if(glow!=null){
+                glow.enabled=true;
+                glow.StartAnimation();
+            }
+
 			//play suono relativo alla corretta potenza
 			soundManager.Play("Colpo1");			
             weapon.OnHit();
             weaponLifeUI.SetFillAmount(weapon.GetLifeAmount());
 
         }else{
+            hitEffect.Play();
             Debug.Log("MISS");
 			soundManager.Play("ColpoSbagliato");
         }

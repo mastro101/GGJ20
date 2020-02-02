@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9020799984512475213}
   - component: {fileID: 883119242844421527}
   - component: {fileID: 1074397153428138535}
+  - component: {fileID: 8151452314646963180}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: weapon
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9c21d5a3d34294c778660b5a06c38ffb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,6 +134,89 @@ MonoBehaviour:
   offset: {x: 40, y: 0}
   Value: 5
   maxLife: 6
+--- !u!114 &8151452314646963180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020799984512475208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3146babb1c6004250b708a0496b7b9e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 14.204144
+      outSlope: 14.204144
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.06399098
+      value: 0.9089371
+      inSlope: -2.1879501
+      outSlope: -2.1879501
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.4067241
+      outWeight: 0.14986491
+    - serializedVersion: 3
+      time: 0.12857634
+      value: 0.015160918
+      inSlope: -0.02683985
+      outSlope: -0.02683985
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.55427253
+    - serializedVersion: 3
+      time: 0.76303744
+      value: 0.039521564
+      inSlope: 0.0635273
+      outSlope: 0.0635273
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.9523828
+    - serializedVersion: 3
+      time: 0.8298636
+      value: 0.5494379
+      inSlope: -0.0050709164
+      outSlope: -0.0050709164
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.7308277
+    - serializedVersion: 3
+      time: 0.87201494
+      value: 0.077361286
+      inSlope: -0.91519564
+      outSlope: -0.91519564
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.36758283
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.028813869
+      outSlope: -0.028813869
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.87473965
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  animationDuration: 0.6
+  material: {fileID: 2100000, guid: 9c21d5a3d34294c778660b5a06c38ffb, type: 2}
 --- !u!1001 &7987868123329397481
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -584,10 +584,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSpawnPoint: {fileID: 1356082558}
   customerIconsUI: {fileID: 241225736}
-  fixedCustomerToSpawn: 0
+  fixedCustomerToSpawn: 1
   maxCustomers: 5
   delayBetweenCustomers: 1
-  numCustomerTypes: 2
+  numCustomerTypes: 3
 --- !u!224 &763378982 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8422997190200453294, guid: 84626c9a98c7de64c93bb180d87d27ab,
@@ -2021,7 +2021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsToPool:
-  - amountToPool: 1
+  - amountToPool: 10
     objectToPool: {fileID: 741740414502328269, guid: a49cd4f8ec541da43801cb3330b584be,
       type: 3}
     shouldExpand: 1
@@ -2029,19 +2029,7 @@ MonoBehaviour:
     objectToPool: {fileID: 8750550759037820032, guid: 174a7c96b06b5ba43adee621647416c7,
       type: 3}
     shouldExpand: 1
-  - amountToPool: 1
-    objectToPool: {fileID: 8750550759037820032, guid: bf88dc7f65ba5f546bb57e12d6e4c079,
-      type: 3}
-    shouldExpand: 1
-  - amountToPool: 1
-    objectToPool: {fileID: 8750550759037820032, guid: 21ac6c9f08c7c304c932c9f14b1201ff,
-      type: 3}
-    shouldExpand: 1
-  - amountToPool: 1
-    objectToPool: {fileID: 8750550759037820032, guid: 03d4e1a30f9765a41bc824c95c7eb32e,
-      type: 3}
-    shouldExpand: 1
-  - amountToPool: 1
+  - amountToPool: 10
     objectToPool: {fileID: 8750550759037820032, guid: 46d0b66d1c78bea4092f22c8654c7111,
       type: 3}
     shouldExpand: 1

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1535544961940863239}
   m_Layer: 0
   m_Name: Hammer_C
-  m_TagString: Customer6
+  m_TagString: Customer3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   weaponPrefab: {fileID: 9020799984512475208, guid: acd01251516d11647b5a72710ba358dd,
     type: 3}
   customerIcon: {fileID: 7220344267157453330}
+  iconOffset: {x: 0, y: 0, z: 0}
   difficulty: 2
 --- !u!1001 &6230903700573799682
 PrefabInstance:

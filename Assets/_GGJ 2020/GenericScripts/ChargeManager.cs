@@ -41,8 +41,6 @@ public class ChargeManager : MonoBehaviour
         }
     }
 
-    public EffectManager hitEffect;
-
     public MacroAnimation MacroHit;
     public Sprite IdleSprite;
     public float timeBetweenHit;
@@ -151,7 +149,7 @@ public class ChargeManager : MonoBehaviour
             
             if(macroAnimationTime>=MacroHit.speed){
                 if(counter==0) hitManager.OnHit();
-                if(counter==1) hitEffect.Play();
+            
                 spriteRenderer.sprite=MacroHit.GetCurrentSequence();
                 macroAnimationTime-=MacroHit.speed;
 

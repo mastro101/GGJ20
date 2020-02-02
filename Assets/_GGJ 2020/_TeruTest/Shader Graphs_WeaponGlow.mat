@@ -10,7 +10,7 @@ Material:
   m_Name: Shader Graphs_WeaponGlow
   m_Shader: {fileID: -6465566751694194690, guid: a687618b10a9b46d2b307dfc3836e02c,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -30,7 +30,7 @@ Material:
     - Glow_Intensity: 2
     - Glow_Size: 11
     - Vector1_17F3800A: 1
-    - _GlowIntensity: 99
+    - _GlowIntensity: 50.4
     - _LerpValue: 0
     m_Colors:
-    - Glow_Color: {r: 0.4000089, g: 0.809839, b: 0.8396226, a: 0}
+    - Glow_Color: {r: 0.08705984, g: 4.7757463, b: 6.1522403, a: 0}

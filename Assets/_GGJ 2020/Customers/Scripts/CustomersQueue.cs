@@ -27,11 +27,11 @@ public class CustomersQueue : MonoBehaviour
     int prevType=-1;
 	public void AddCustomer()
     {
-		var randomInt = fixedCustomerToSpawn!=0? fixedCustomerToSpawn:RandomRangeExcept(1,2,prevType);
+		var randomInt = fixedCustomerToSpawn!=0? fixedCustomerToSpawn:RandomRangeExcept(1,numCustomerTypes+1,prevType);
 
         var customer = PoolManager.SharedInstance.GetPooledObject("Customer" + randomInt).GetComponent<Customer>();
         customer.Activate();
-        prevType=customer.GetDifficulty();
+        prevType=randomInt;
 
 		customers.Add(customer);
 		customerIconsUI.SetCustomerIcon(customer);
