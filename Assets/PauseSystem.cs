@@ -18,6 +18,7 @@ public class PauseSystem : MonoBehaviour
 		loseMenu.SetActive(false);
 		
 		soundManager=GameObject.Find("SoundManager").GetComponent<SoundManager>();
+		Time.timeScale = 1f;
     }
 
     void Update()
@@ -49,14 +50,14 @@ public class PauseSystem : MonoBehaviour
 	}*/
 	
 	public void WinGame() {
-		Time.timeScale = 0f;
 		winMenu.SetActive(true);
+		Time.timeScale = 0f;
 		soundManager.Play("Vittoria2");
 	}
 	
 	public void LoseGame() {
-		Time.timeScale=0f;
 		loseMenu.SetActive(true);
+		Time.timeScale=0f;
 		soundManager.Play("Sconfitta");
 	}
 }

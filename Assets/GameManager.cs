@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
             StartGame();
 			StartCoroutine("PlayEpicPhraseAnimation");
         }
+				
     }
 
     private void StartGame()
