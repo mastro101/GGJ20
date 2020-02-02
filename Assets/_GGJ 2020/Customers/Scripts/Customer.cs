@@ -10,10 +10,6 @@ public class Customer : MonoBehaviour
     public int difficulty;
 
     private GameObject weapon;
-    void Awake(){
-        weapon = Instantiate(weaponPrefab, new Vector3(0,0,0), Quaternion.identity);
-        weapon.transform.parent=gameObject.transform;
-    }
 
     public GameObject GetWeapon(){
         return weapon;
@@ -28,15 +24,23 @@ public class Customer : MonoBehaviour
         return difficulty;
     }
 
-    public void ActivateWithoutSword(){
+    public void Activate(){
         gameObject.SetActive(true);
-        weapon.SetActive(false);
     } 
 
-    public void Activate(Vector2 spawnPosition){
+    public void ActivateAll(Vector2 spawnPosition){
         gameObject.SetActive(true);
-        weapon.SetActive(true);
+        ActivareOrCreate();
         PlaceWeaponInWorld(spawnPosition);
+    }
+
+    private void ActivareOrCreate(){
+        if(weapon==null){
+            weapon = Instantiate(weaponPrefab, new Vector3(0,0,0), Quaternion.identity);
+            weapon.transform.parent=gameObject.transform;       
+        }
+
+        weapon.SetActive(true);
     }
 
     public void Deactivate(){
