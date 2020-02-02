@@ -8,4 +8,6 @@ public class WeaponInfo : MonoBehaviour
     
     public int maxLife;
     [HideInInspector] public int currentLife;
+
+    public int EarningsCoin;
 }
