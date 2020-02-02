@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
 
     public TimerUI timerUI;
     private bool isPlaying;
+	
+	public Sprite[] epicPhraseFrames;
+	public GameObject epicPhrasePrefab;
 
     void Start()
     {
@@ -66,6 +69,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void GetNextCustomer(){
+		
+		StartCoroutine(PlayEpicPhraseAnimation);
+		
         var customer=CustomersQueue.ServeCustomer();
         var weaponInfo=customer.GetWeapon().GetComponent<WeaponInfo>();
         HitManager.SharedInstance.SetWeapon(weaponInfo);
@@ -105,4 +111,13 @@ public class GameManager : MonoBehaviour
             pauseSystem.LoseGame();
         }
     }
+	
+	private IEnumerator PlayEpicPhraseAnimation() {
+		GameObject epicPhraseImage = Instantiate(epicPhrasePrefab, GameObject.Find("HitManager").transform.position, transform.rotation);
+		for(int i=0; i<epicPhraseFrames.Length; i++) {
+			yield return new WaitForSeconds(0.2f);
+			epicPhraseImage.GetComponent<Image>().sprite = epicPhraseFrames[i];
+		}
+	}
+	
 }
