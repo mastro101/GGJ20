@@ -7,13 +7,8 @@ public class CoinUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI coinText;
 
-    private void Start()
+    public void SetMoneyAmount(float value)
     {
-        HitManager.SharedInstance.OnCompletWeapon += SetTimerText;
-    }
-
-    void SetTimerText(WeaponInfo _weapon)
-    {
-        coinText.text += _weapon.EarningsCoin;
+        coinText.text = value.ToString();
     }
 }

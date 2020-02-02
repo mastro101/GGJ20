@@ -8,7 +8,7 @@ public class WeaponInfo : MonoBehaviour
 {
 
     public Vector2 offset;
-    
+    public float Value;
     public int maxLife;
     private int currentLife;
     private Action OnRepaired;

@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
 {
     
     private float Money;
-
+    public CoinUI coinUI;
+    public SoundManager soundManager;
     public CustomersQueue CustomersQueue;
 
     void Start()
@@ -30,14 +31,12 @@ public class GameManager : MonoBehaviour
         HitManager.SharedInstance.SetWeapon(weaponInfo);
         weaponInfo.ResetEvents();
         weaponInfo.RegisterToOnRepairedEvent(()=>{
-            Money
+            Money+=weaponInfo.Value;
+            coinUI.SetMoneyAmount(Money);
         });
 
     }
 
-    private void OnRepaired(){
-         HitManager.SharedInstance.
-    }
 
     public float GetMoney(){
         return Money;
