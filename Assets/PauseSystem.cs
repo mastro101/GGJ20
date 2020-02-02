@@ -5,7 +5,7 @@ using UnityEngine;
 public class PauseSystem : MonoBehaviour
 {
 	
-	public GameObject pauseMenu;
+	//public GameObject pauseMenu;
 	bool pause = false;
 	public GameObject winMenu, loseMenu;
 	
@@ -13,7 +13,7 @@ public class PauseSystem : MonoBehaviour
 	
     void Start()
     {       
-		PauseGame(false);	
+		//PauseGame(false);	
 		winMenu.SetActive(false);
 		loseMenu.SetActive(false);
 		
@@ -22,10 +22,10 @@ public class PauseSystem : MonoBehaviour
 
     void Update()
     {
-         if(Input.GetKeyDown(KeyCode.Q)) {
+         /*if(Input.GetKeyDown(KeyCode.Q)) {
 		 	pause = !pause;
 		 	PauseGame(pause);
-		 }
+		 }*/
 		
 		//if(Input.GetKeyDown(KeyCode.A)) {
 		//	WinGame();
@@ -36,7 +36,7 @@ public class PauseSystem : MonoBehaviour
 		//}
     }
 	
-	public void PauseGame(bool newState) {
+	/*public void PauseGame(bool newState) {
 		pause = newState;
 		if(pause) {
 			Time.timeScale = 0f;
@@ -46,7 +46,7 @@ public class PauseSystem : MonoBehaviour
 			Time.timeScale = 1f;
 			pauseMenu.SetActive(false);
 		}
-	}
+	}*/
 	
 	public void WinGame() {
 		Time.timeScale = 0f;
