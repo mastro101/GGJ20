@@ -43,6 +43,7 @@ public class SoundManager : MonoBehaviour
         s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
         s.source.Play();
+		Debug.Log(sound);
     }
 
     public void Pause(string sound)

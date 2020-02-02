@@ -14,11 +14,16 @@ public class SwordMovement : MonoBehaviour
 
     private float LeftLimit;
     private float RightLimit;
+	
+	private SoundManager soundManager;
+	
     void Start()
     {
         startingPos=transform.position.x;
         LeftLimit=startingPos-range;
         RightLimit=startingPos;
+		
+		soundManager=GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
   
     void Update()
@@ -52,6 +57,7 @@ public class SwordMovement : MonoBehaviour
     void MovementHandler(float moveAmount)
     {
         transform.position+=new Vector3(moveAmount,0,0);
+		soundManager.Play("ScorrimentoArma");
     }   
     
 }
