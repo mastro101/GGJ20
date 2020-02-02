@@ -529,6 +529,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 915720504}
     m_Modifications:
+    - target: {fileID: 2146912171301579116, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146912171301579116, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146912171301579116, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146912171301579116, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2421721150724968951, guid: 84626c9a98c7de64c93bb180d87d27ab,
         type: 3}
       propertyPath: green
@@ -978,6 +998,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 8491428655303447226, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491428655303447226, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491428655303447226, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491428655303447226, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
 --- !u!1 &915720500
@@ -1057,7 +1097,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
