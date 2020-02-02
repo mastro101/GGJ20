@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        CustomersQueue.onQueueChange += CheckLoseCondiction;
         ResetUI();
     }
     
@@ -38,9 +40,15 @@ public class GameManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.I))
         {
-            isPlaying = true;
-            GetNextCustomer();
+            StartGame();
         }
+    }
+
+    private void StartGame()
+    {
+        isPlaying = true;
+        StartCoroutine(StartTimer());
+        GetNextCustomer();
     }
 
     public IEnumerator StartTimer(){
@@ -68,8 +76,6 @@ public class GameManager : MonoBehaviour
             StartCoroutine(RemoveLastAndGetNewCustomer());
             isPlaying=false;
         });
-
-        StartCoroutine(StartTimer());
     }
 
 
@@ -80,6 +86,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         weaponLifeUI.Reset();
         GetNextCustomer();
+    }
+
+    void CheckLoseCondiction(int _customerInQueue)
+    {
+        if (_customerInQueue == CustomersQueue.maxCustomers)
+            EndGame(false);
     }
 
     public void EndGame(bool _isWin)

@@ -16,9 +16,11 @@ public class CustomersQueue : MonoBehaviour
     Customer oldCustomer = null;
     public int numCustomerTypes;
 	
+    public System.Action<int> onQueueChange;
+
 	private SoundManager soundManager;
-	
-	private void Start() {
+
+    private void Start() {
 		soundManager=GameObject.Find("SoundManager").GetComponent<SoundManager>();
 	}
 	
@@ -34,6 +36,11 @@ public class CustomersQueue : MonoBehaviour
     int prevType=-1;
 	public void AddCustomer()
     {
+        if (customers.Count >= maxCustomers)
+        {
+            onQueueChange?.Invoke(customers.Count);
+        }
+
 		var randomInt = fixedCustomerToSpawn!=0? fixedCustomerToSpawn:RandomRangeExcept(1,numCustomerTypes+1,prevType);
 
         var customer = PoolManager.SharedInstance.GetPooledObject("Customer" + randomInt).GetComponent<Customer>();
@@ -59,7 +66,7 @@ public class CustomersQueue : MonoBehaviour
     }
 	
 	public IEnumerator FillQueue(){
-        while(customers.Count<maxCustomers){
+        while(customers.Count<maxCustomers + 1){
             AddCustomer();
             yield return new WaitForSeconds(delayBetweenCustomers);
         }
