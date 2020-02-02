@@ -20,11 +20,6 @@ public class WeaponInfo : MonoBehaviour
     private int currentStep=1;
     private SpriteRenderer spriteRenderer;
 
-    private void OnEnable() {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        Reset();
-    }
-
     public void RegisterToOnRepairedEvent(Action action){
         OnRepaired=action;
     }
@@ -34,7 +29,11 @@ public class WeaponInfo : MonoBehaviour
         isFixed=false;
         OnRepaired=null;
         currentStep=counter=1;
-        spriteRenderer.sprite=sequence[0];
+        if(sequence.Count>0){
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite=sequence[0];
+        }
+        
     }
 
     public void OnHit(){
