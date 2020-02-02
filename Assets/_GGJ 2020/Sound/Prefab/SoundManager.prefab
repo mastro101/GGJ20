@@ -157,7 +157,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Vittoria2
-    clip: {fileID: 8300000, guid: d03599913bfc4b643a01b2d82ab58277, type: 3}
+    clip: {fileID: 8300000, guid: d197a279a87a4954a9d31da2a78c2a59, type: 3}
     volume: 0.6
     volumeVariance: 0.1
     pitch: 1
@@ -230,14 +230,6 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ArrivoCliente3
     clip: {fileID: 8300000, guid: 87dc6eb119c957f46819b99ec4c5db10, type: 3}
-    volume: 0.75
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    source: {fileID: 0}
-  - name: Vittoria3
-    clip: {fileID: 8300000, guid: 53fd9caf09d4f704aa0f6bfb21f3d81b, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1

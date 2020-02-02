@@ -22,10 +22,10 @@ public class PauseSystem : MonoBehaviour
 
     void Update()
     {
-        // if(Input.GetKeyDown(KeyCode.Space)) {
-		// 	pause = !pause;
-		// 	PauseGame(pause);
-		// }
+         if(Input.GetKeyDown(KeyCode.Q)) {
+		 	pause = !pause;
+		 	PauseGame(pause);
+		 }
 		
 		//if(Input.GetKeyDown(KeyCode.A)) {
 		//	WinGame();
@@ -52,7 +52,6 @@ public class PauseSystem : MonoBehaviour
 		Time.timeScale = 0f;
 		winMenu.SetActive(true);
 		soundManager.Play("Vittoria2");
-		soundManager.Play("Vittoria3");
 	}
 	
 	public void LoseGame() {

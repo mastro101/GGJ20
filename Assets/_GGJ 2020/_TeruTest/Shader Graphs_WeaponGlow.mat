@@ -31,6 +31,6 @@ Material:
     - Glow_Size: 11
     - Vector1_17F3800A: 1
     - _GlowIntensity: 50.4
-    - _LerpValue: 0.80382514
+    - _LerpValue: 0
     m_Colors:
     - Glow_Color: {r: 0.08705984, g: 4.7757463, b: 6.1522403, a: 0}
