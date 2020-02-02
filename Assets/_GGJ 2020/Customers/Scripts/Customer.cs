@@ -12,6 +12,8 @@ public class Customer : MonoBehaviour
     private GameObject weapon;
 
     public GameObject GetWeapon(){
+        if(weapon==null)
+           ActivareOrCreate();
         return weapon;
     }
     
@@ -35,12 +37,16 @@ public class Customer : MonoBehaviour
     }
 
     private void ActivareOrCreate(){
-        if(weapon==null){
-            weapon = Instantiate(weaponPrefab, new Vector3(0,0,0), Quaternion.identity);
-            weapon.transform.parent=gameObject.transform;       
-        }
+        if(weapon==null)
+           CreateWeapon();
 
         weapon.SetActive(true);
+    }
+
+    private void CreateWeapon(){
+        weapon = Instantiate(weaponPrefab, new Vector3(0,0,0), Quaternion.identity);
+        weapon.transform.parent=gameObject.transform;  
+        weapon.SetActive(false);     
     }
 
     public void Deactivate(){
