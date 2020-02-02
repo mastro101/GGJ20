@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 	
 	public Sprite[] epicPhraseFrames;
 	public GameObject epicPhrasePrefab;
+	public float epicPhraseSpeed = 0.1f;
 
     void Start()
     {
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.I))
         {
             StartGame();
+			StartCoroutine("PlayEpicPhraseAnimation");
         }
     }
 
@@ -71,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void GetNextCustomer(){
 		
-		//StartCoroutine(PlayEpicPhraseAnimation);
+		StartCoroutine("PlayEpicPhraseAnimation");
 		
         var customer=CustomersQueue.ServeCustomer();
         var weaponInfo=customer.GetWeapon().GetComponent<WeaponInfo>();
@@ -114,11 +116,13 @@ public class GameManager : MonoBehaviour
     }
 	
 	private IEnumerator PlayEpicPhraseAnimation() {
-		GameObject epicPhraseImage = Instantiate(epicPhrasePrefab, GameObject.Find("HitManager").transform.position, transform.rotation);
+		GameObject epicPhraseImage = Instantiate(epicPhrasePrefab, new Vector3(180,100,0), transform.rotation);
 		for(int i=0; i<epicPhraseFrames.Length; i++) {
-			yield return new WaitForSeconds(0.2f);
-			epicPhraseImage.GetComponent<Image>().sprite = epicPhraseFrames[i];
+			yield return new WaitForSeconds(epicPhraseSpeed);
+			epicPhraseImage.GetComponent<SpriteRenderer>().sprite = epicPhraseFrames[i];
 		}
+		yield return new WaitForSeconds(epicPhraseSpeed);
+		Destroy(epicPhraseImage.gameObject);
 	}
 	
 }
