@@ -71,7 +71,7 @@ public class ChargeManager : MonoBehaviour
         if(isAttacking) 
         return;
 
-        if(Mathf.Floor(Input.GetAxis("Vertical1"))==-1){    
+        if(Mathf.Floor(Input.GetAxis("Vertical1"))==-1 || Input.GetKey(KeyCode.Return)){    
             if(!sequenceStarted)
                 sequenceStarted=true;           
             timeFromStart+=Time.deltaTime;

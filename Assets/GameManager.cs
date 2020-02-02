@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] int durationOfGameInSecond;
     
     private float Money;
     public CoinUI coinUI;
     public WeaponLifeUI weaponLifeUI;
-
+    public PauseSystem pauseSystem;
 
     public SoundManager soundManager;
     public CustomersQueue CustomersQueue;
     
+    [HideInInspector] public float currentTime;
 
     public TimerUI timerUI;
     private bool isPlaying;
@@ -39,13 +41,17 @@ public class GameManager : MonoBehaviour
     }
 
     public IEnumerator StartTimer(){
-        float timer=0;
+        float timer=durationOfGameInSecond;
         while(isPlaying){
-            timer += Time.deltaTime;
-            int seconds = (int)(timer % 60);
+            timer -= Time.deltaTime;
+            int seconds = (int)(timer);
             timerUI.SetTimerText(seconds);
+            currentTime = timer;
+            if (currentTime < 0)
+                isPlaying = false;
             yield return null;
         }
+        EndGame(true);
     }
 
     public void GetNextCustomer(){
@@ -71,5 +77,17 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         weaponLifeUI.Reset();
         GetNextCustomer();
+    }
+
+    public void EndGame(bool _isWin)
+    {
+        if (_isWin)
+        {
+            pauseSystem.WinGame();
+        }
+        else
+        {
+            pauseSystem.LoseGame();
+        }
     }
 }
