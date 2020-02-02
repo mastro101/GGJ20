@@ -27,13 +27,13 @@ public class PauseSystem : MonoBehaviour
 		// 	PauseGame(pause);
 		// }
 		
-		if(Input.GetKeyDown(KeyCode.A)) {
-			WinGame();
-		}
+		//if(Input.GetKeyDown(KeyCode.A)) {
+		//	WinGame();
+		//}
 		
-		if(Input.GetKeyDown(KeyCode.S)) {
-			LoseGame();
-		}
+		//if(Input.GetKeyDown(KeyCode.S)) {
+		//	LoseGame();
+		//}
     }
 	
 	public void PauseGame(bool newState) {

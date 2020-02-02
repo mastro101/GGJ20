@@ -127,9 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b78321ff9ca0144ad47b5603f793cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequence: []
   offset: {x: 25, y: 0}
   Value: 100
-  maxLife: 1
+  maxLife: 3
 --- !u!1001 &3716231836744861713
 PrefabInstance:
   m_ObjectHideFlags: 0

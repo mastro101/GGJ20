@@ -5,28 +5,42 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     public GameObject weaponPrefab;
-    public Sprite customerIcon;
-
+    public GameObject customerIcon;
+    public Vector3 iconOffset;
     public int difficulty;
 
     private GameObject weapon;
-    void Awake(){
-        weapon = Instantiate(weaponPrefab, new Vector3(0,0,0), Quaternion.identity);
-        weapon.transform.parent=gameObject.transform;
-    }
 
     public GameObject GetWeapon(){
         return weapon;
     }
     
+    public void SetCustomerIconPosition(Transform transform){
+        customerIcon.transform.parent=transform;
+        customerIcon.transform.position=transform.position+iconOffset;
+    }
+
     public int GetDifficulty(){
         return difficulty;
     }
 
-    public void Activate(Vector2 spawnPosition){
+    public void Activate(){
         gameObject.SetActive(true);
-        weapon.SetActive(true);
+    } 
+
+    public void ActivateAll(Vector2 spawnPosition){
+        gameObject.SetActive(true);
+        ActivareOrCreate();
         PlaceWeaponInWorld(spawnPosition);
+    }
+
+    private void ActivareOrCreate(){
+        if(weapon==null){
+            weapon = Instantiate(weaponPrefab, new Vector3(0,0,0), Quaternion.identity);
+            weapon.transform.parent=gameObject.transform;       
+        }
+
+        weapon.SetActive(true);
     }
 
     public void Deactivate(){

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] int durationOfGameInSecond;
     
     private float Money;
     public CoinUI coinUI;
     public WeaponLifeUI weaponLifeUI;
-
+    public PauseSystem pauseSystem;
 
     public SoundManager soundManager;
     public CustomersQueue CustomersQueue;
     
+    [HideInInspector] public float currentTime;
 
     public TimerUI timerUI;
     private bool isPlaying;
@@ -24,7 +26,7 @@ public class GameManager : MonoBehaviour
     
     private void ResetUI(){
         timerUI.SetTimerText(0);
-        coinUI.SetMoneyAmount(0);
+        coinUI.SetMoneyAmount(Money);
         weaponLifeUI.Reset();
     }
 
@@ -35,17 +37,24 @@ public class GameManager : MonoBehaviour
             CustomersQueue.FillCustomers();
 
         if(Input.GetKeyDown(KeyCode.I))
+        {
+            isPlaying = true;
             GetNextCustomer();
+        }
     }
 
     public IEnumerator StartTimer(){
-        float timer=0;
+        float timer=durationOfGameInSecond;
         while(isPlaying){
-            timer += Time.deltaTime;
-            int seconds = (int)(timer % 60);
+            timer -= Time.deltaTime;
+            int seconds = (int)Mathf.Floor(timer);
             timerUI.SetTimerText(seconds);
+            currentTime = timer;
+            if (currentTime < 0)
+                isPlaying = false;
             yield return null;
         }
+        EndGame(true);
     }
 
     public void GetNextCustomer(){
@@ -57,9 +66,9 @@ public class GameManager : MonoBehaviour
             Money+=weaponInfo.Value;
             coinUI.SetMoneyAmount(Money);
             StartCoroutine(RemoveLastAndGetNewCustomer());
+            isPlaying=false;
         });
 
-        isPlaying=true;
         StartCoroutine(StartTimer());
     }
 
@@ -71,5 +80,17 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         weaponLifeUI.Reset();
         GetNextCustomer();
+    }
+
+    public void EndGame(bool _isWin)
+    {
+        if (_isWin)
+        {
+            pauseSystem.WinGame();
+        }
+        else
+        {
+            pauseSystem.LoseGame();
+        }
     }
 }

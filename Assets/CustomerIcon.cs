@@ -17,6 +17,13 @@ public class CustomerIcon : MonoBehaviour
 
     private Image image;
     private Customer customer;
+
+    public GameObject IconPosition;
+
+    public Vector3 GetIconPosition(){
+        return IconPosition.transform.position;
+    }
+
     void Awake(){
         image=GetComponent<Image>();
     }
@@ -34,6 +41,8 @@ public class CustomerIcon : MonoBehaviour
         GetComponent<RectTransform>().sizeDelta=new Vector2(250,250);
         SetBaseImage(customer.GetDifficulty(),true);
     }
+
+
 
     private void SetBaseImage(int difficulty,bool useTopBanner){
         switch(difficulty){

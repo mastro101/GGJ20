@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 2518294634503739411}
   - component: {fileID: 7382624054482514506}
   m_Layer: 0
-  m_Name: Customer
+  m_Name: Sword_C
   m_TagString: Customer1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4937375060121580481
 Transform:
   m_ObjectHideFlags: 0
@@ -28,7 +28,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6754118214639249870}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -96,5 +97,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 3716231836805313943, guid: 4d18c8059232de741b61be2b802beb6a,
     type: 3}
-  customerIcon: {fileID: 0}
+  customerIcon: {fileID: 1077597169795260341}
   difficulty: 1
+--- !u!1001 &8978422812022602928
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4937375060121580481}
+    m_Modifications:
+    - target: {fileID: 2387665646991152510, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387665646991152510, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387665646991152510, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387665646991152510, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387665646991152510, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387665646991152510, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387665646991152510, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387665646991152510, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387665646991152510, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387665646991152510, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387665646991152510, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043500698057552211, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245430184061313797, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+        type: 3}
+      propertyPath: m_Name
+      value: Spada Normale
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efaf7a5d29ee32b4eb1fc512debba85e, type: 3}
+--- !u!1 &1077597169795260341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8245430184061313797, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8978422812022602928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6754118214639249870 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2387665646991152510, guid: efaf7a5d29ee32b4eb1fc512debba85e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8978422812022602928}
+  m_PrefabAsset: {fileID: 0}

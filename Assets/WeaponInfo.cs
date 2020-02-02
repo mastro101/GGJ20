@@ -20,7 +20,7 @@ public class WeaponInfo : MonoBehaviour
     private int currentStep=1;
     private SpriteRenderer spriteRenderer;
 
-    void Awake(){      
+    private void OnEnable() {
         spriteRenderer = GetComponent<SpriteRenderer>();
         Reset();
     }
