@@ -26,8 +26,9 @@ public class WeaponInfo : MonoBehaviour
     }
 
     public void OnHit(){
+        Debug.Log(currentLife);
         currentLife--;
-        if(currentLife<0)
+        if(currentLife<=0)
             OnRepaired();
     }
 }

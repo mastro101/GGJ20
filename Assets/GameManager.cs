@@ -10,9 +10,13 @@ public class GameManager : MonoBehaviour
     public SoundManager soundManager;
     public CustomersQueue CustomersQueue;
 
+    public TimerUI timerUI;
+    private bool isPlaying;
+
     void Start()
     {
-       
+        timerUI.SetTimerText(0);
+        coinUI.SetMoneyAmount(0);
     }
     
     // Update is called once per frame
@@ -22,7 +26,17 @@ public class GameManager : MonoBehaviour
             CustomersQueue.FillCustomers();
 
         if(Input.GetKeyDown(KeyCode.I))
-            CustomersQueue.ServeCustomer();
+            GetNextCustomer();
+    }
+
+    public IEnumerator StartTimer(){
+        float timer=0;
+        while(isPlaying){
+            timer += Time.deltaTime;
+            int seconds = (int)(timer % 60);
+            timerUI.SetTimerText(seconds);
+            yield return null;
+        }
     }
 
     public void GetNextCustomer(){
@@ -33,12 +47,18 @@ public class GameManager : MonoBehaviour
         weaponInfo.RegisterToOnRepairedEvent(()=>{
             Money+=weaponInfo.Value;
             coinUI.SetMoneyAmount(Money);
+            StartCoroutine(RemoveLastAndGetNewCustomer());
         });
 
+        isPlaying=true;
+        StartCoroutine(StartTimer());
     }
 
 
-    public float GetMoney(){
-        return Money;
+    private IEnumerator RemoveLastAndGetNewCustomer(){
+        isPlaying=false;
+        CustomersQueue.RemoveLast();
+        yield return new WaitForSeconds(1);
+        GetNextCustomer();
     }
 }

@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 25, y: 0}
-  maxLife: 0
-  currentLife: 0
+  Value: 100
+  maxLife: 1
 --- !u!1001 &3716231836744861713
 PrefabInstance:
   m_ObjectHideFlags: 0

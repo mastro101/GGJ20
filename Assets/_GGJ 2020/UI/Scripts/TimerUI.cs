@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using System;
 public class TimerUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     int min, sec;
 
-    void SetTimerText(int _time)
+    public void SetTimerText(int time)
     {
-        min = _time / 60;
-        sec = _time % 60;
-        timerText.text = "0" + min.ToString() + " " + sec.ToString();
+        min = time / 60;
+        sec = time % 60;
+        timerText.text = min.ToString().ToString().PadLeft(2,'0') + " " + sec.ToString().PadLeft(2,'0');
     }
 }
