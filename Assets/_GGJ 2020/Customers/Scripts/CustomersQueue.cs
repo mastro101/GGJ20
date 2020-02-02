@@ -70,7 +70,7 @@ public class CustomersQueue : MonoBehaviour
     }
 
     public void RemoveLast(){
-        var lastCustomer=customers.Last();
+        var lastCustomer=customers.First();
         customers.Remove(lastCustomer);
         lastCustomer.Deactivate();
         customerIconsUI.RemoveLastAndReorder();
@@ -80,7 +80,7 @@ public class CustomersQueue : MonoBehaviour
     }
 
     public Customer ServeCustomer(){
-        var customer=customers.Last();
+        var customer=customers.First();
         customer.ActivateAll(weaponSpawnPoint.position);
         return customer;
     }

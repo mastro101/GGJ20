@@ -12,7 +12,7 @@ public class GlowShaderController : MonoBehaviour
 
     public void Awake()
 	{
-		material = GetComponent < Image > ().material;
+		material = GetComponent < SpriteRenderer > ().material;
 	}
 
     public void StartAnimation()
@@ -24,7 +24,6 @@ public class GlowShaderController : MonoBehaviour
     {
 		timer += Time.deltaTime;
 		float evaluationParam = timer / animationDuration;
-		Debug.Log(animationCurve.Evaluate(evaluationParam));
 		material.SetFloat("_LerpValue", animationCurve.Evaluate(evaluationParam));
     }
 
