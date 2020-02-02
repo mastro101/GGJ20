@@ -7,6 +7,15 @@ TagManager:
   - Customer1
   - Customer2
   - Customer3
+  - weapon
+  - Customer4
+  - Customer5
+  - Customer6
+  - Customer7
+  - Customer8
+  - Customer9
+  - Customer10
+  - Customer11
   layers:
   - Default
   - TransparentFX
