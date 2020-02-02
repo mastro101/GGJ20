@@ -51,9 +51,8 @@ public class PauseSystem : MonoBehaviour
 	public void WinGame() {
 		Time.timeScale = 0f;
 		winMenu.SetActive(true);
-		int nSuono = Random.Range(0,1);
-		if(nSuono==0) soundManager.Play("Vittoria1");
-		else soundManager.Play("Vittoria2");
+		soundManager.Play("Vittoria2");
+		soundManager.Play("Vittoria3");
 	}
 	
 	public void LoseGame() {

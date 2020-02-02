@@ -70,7 +70,19 @@ public class SwordMovement : MonoBehaviour
     void MovementHandler(float moveAmount)
     {
         transform.position+=new Vector3(moveAmount,0,0);
-		soundManager.Play("ScorrimentoArma");
+		int n=Random.Range(0,2);
+		switch(n){
+			case 0:
+			soundManager.Play("ScorrimentoArma1");
+			break;
+			case 1:
+			soundManager.Play("ScorrimentoArma1");
+			break;
+			case 2:
+			soundManager.Play("ScorrimentoArma1");
+			break;
+		};
+		
     }   
     
 }

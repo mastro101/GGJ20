@@ -32,7 +32,8 @@ public class SoundManager : MonoBehaviour
 
     public void Play(string sound)
     {
-        Sound s = Array.Find(sounds, item => item.name == sound);
+		
+		Sound s = Array.Find(sounds, item => item.name == sound);
         if (s == null)
         {
             Debug.LogWarning("Sound: " + name + " not found!");
@@ -43,7 +44,6 @@ public class SoundManager : MonoBehaviour
         s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
         s.source.Play();
-		Debug.Log(sound);
     }
 
     public void Pause(string sound)

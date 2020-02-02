@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GlowShaderController : MonoBehaviour
 {
     public AnimationCurve animationCurve;
-	private float timer;
+	private float timer = 99;
     public float animationDuration = 1;
 	public Material material;
 
