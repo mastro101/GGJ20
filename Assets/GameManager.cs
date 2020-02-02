@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator StartTimer(){
         float timer=durationOfGameInSecond;
-        while(isPlaying){
+        while(timer > 0){
             timer -= Time.deltaTime;
             int seconds = (int)Mathf.Floor(timer);
             timerUI.SetTimerText(seconds);
