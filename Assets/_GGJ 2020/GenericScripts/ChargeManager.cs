@@ -54,11 +54,14 @@ public class ChargeManager : MonoBehaviour
     public int step=0;
 
     private HitManager hitManager;
+	
+	private SoundManager soundManager;
     
     void Start()
     {
         hitManager=HitManager.SharedInstance;
         spriteRenderer = GetComponent<SpriteRenderer>();
+		soundManager=GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     private float timeFromStart=0;
@@ -96,7 +99,16 @@ public class ChargeManager : MonoBehaviour
         macroAnimation.Reset();
         macroAnimation.Start();
         float macroAnimationTime=0;
-
+		
+		switch (step) {
+			case 0:
+				soundManager.Play("InizioCarica");
+				break;
+			case 3:
+				soundManager.Play("Carica");
+				break;
+		};
+		
         while(true){
             macroAnimationTime+=Time.deltaTime;
             

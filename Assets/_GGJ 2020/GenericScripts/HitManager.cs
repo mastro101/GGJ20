@@ -13,6 +13,8 @@ public class HitManager : MonoBehaviour
 
     public System.Action<WeaponInfo> OnCorrectHit;
     public System.Action<WeaponInfo> OnCompletWeapon;
+	
+	private SoundManager soundManager;
 
     public void SetTargetSpawner(TargetSpawner targetSpawner){
         activeTargetSpawner=targetSpawner;
@@ -27,6 +29,7 @@ public class HitManager : MonoBehaviour
     {
         customersQueue = FindObjectOfType<CustomersQueue>();
         //weapon = customersQueue.NextCustomer().currentSword;
+		soundManager=GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     public void OnHit(){
@@ -35,6 +38,10 @@ public class HitManager : MonoBehaviour
         
         if(PointInsideHitArea(target.transform.position)){
             Debug.Log("COLPITO");
+			
+			//play suono relativo alla corretta potenza
+			soundManager.Play("Colpo1");
+			
             weapon.currentLife++;
             OnCorrectHit?.Invoke(weapon);
             if (weapon.currentLife == weapon.maxLife)
@@ -44,6 +51,7 @@ public class HitManager : MonoBehaviour
 
         }else{
             Debug.Log("MISS");
+			soundManager.Play("ColpoSbagliato");
         }
         
         cameraShake.StartXShake();
