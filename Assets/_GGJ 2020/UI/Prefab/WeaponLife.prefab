@@ -25,16 +25,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921706387347676745}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071046, w: 0.707109}
+  m_LocalRotation: {x: 0, y: -0, z: 0.70713484, w: -0.70707875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8061745182411237207}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 269.995}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -412, y: 0}
+  m_AnchoredPosition: {x: 409, y: -2}
   m_SizeDelta: {x: 128, y: 94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8990319551174400376
@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 8061745182411237207}
   - component: {fileID: 8061745182411237201}
   - component: {fileID: 8061745182411237200}
+  - component: {fileID: 6801408027976430931}
   m_Layer: 5
   m_Name: WeaponLife
   m_TagString: Untagged
@@ -98,7 +99,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8061745182411237206}
-  m_LocalRotation: {x: -0, y: -0, z: -0.70631087, w: 0.7079018}
+  m_LocalRotation: {x: 0, y: 0, z: -0.70631033, w: 0.7079024}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -148,6 +149,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6801408027976430931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8061745182411237206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b3923e4ae5dfa43b4478a4840ad532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponLifeImage: {fileID: 8061745182507112594}
 --- !u!1 &8061745182507112592
 GameObject:
   m_ObjectHideFlags: 0
