@@ -51,6 +51,7 @@ public class TargetSpawner : MonoBehaviour
 
         ConfigTarget(target);
         target.SetActive(true);
+        target.GetComponent<TargetChanger>().SetRandomTarget();
         lastId=id;
     }
 
