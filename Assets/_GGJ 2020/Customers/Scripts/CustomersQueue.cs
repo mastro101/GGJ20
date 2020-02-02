@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CustomersQueue : MonoBehaviour
 {
     [SerializeField] Transform weaponSpawnPoint;
     public CustomerIconsUI customerIconsUI;
     
+    public int maxCustomers;
+    public float delayBetweenCustomers;
     private List<Customer> customers = new List<Customer>();
 
     Customer oldCustomer = null;
@@ -14,53 +17,56 @@ public class CustomersQueue : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-            NextCustomer();
+            AddCustomer();
+
+        if (Input.GetKeyDown(KeyCode.C))
+            RemoveLast();
     }
 
+    int prevType=-1;
     public Customer AddCustomer()
     {
-        Customer customer = null;
-        int randomInt = 1;
-        int l = 10;
-        for (int i = 0; i < l; i++)
-        {
-            randomInt = Random.Range(1, numCustomerTypes + 1);
-            customer = PoolManager.SharedInstance.GetPooledObjectWithoutInstantiate("Customer" + randomInt).GetComponent<Customer>();
-            if (oldCustomer != null)
-            {
-                if (oldCustomer.GetDifficulty() == customer.GetDifficulty())
-                {
-                    if (i == l - 1)
-                        customer = PoolManager.SharedInstance.GetPooledObject("Customer1").GetComponent<Customer>();
-                    continue;
-                }
-                else
-                {
-                    customer = PoolManager.SharedInstance.GetPooledObject("Customer" + randomInt).GetComponent<Customer>();
-                    break;
-                }
-            }
-        }
+        var randomInt = RandomRangeExcept(1,2,prevType);
+
+        var customer = PoolManager.SharedInstance.GetPooledObject("Customer" + randomInt).GetComponent<Customer>();
+        prevType=customer.GetDifficulty();
 
         customer.Activate(weaponSpawnPoint.position);
 
-        oldCustomer = customer;
         customers.Add(customer);
-        customerIconsUI.AddCustomer(customer);
+        customerIconsUI.SetCustomerIcon(customer);
 
         return customer;
     }
 
-    public void NextCustomer()
-    {
-        AddCustomer();
-
-        if(customers.Count>1){
-            Customer lastCustomer = customers[0];
-            lastCustomer.Deactivate();
-            customers.Remove(lastCustomer);
-         
-            customerIconsUI.RemoveFirst();
+    public IEnumerator FillQueue(){
+        while(customers.Count<(maxCustomers+1)){
+            AddCustomer();
+            yield return new WaitForSeconds(delayBetweenCustomers);
         }
+    }
+
+    public void FillCustomers(){
+        StartCoroutine(FillQueue());
+    }
+
+    public void RemoveLast(){
+        var lastCustomer=customers.Last();
+        customers.Remove(lastCustomer);
+        lastCustomer.gameObject.SetActive(false);
+        customerIconsUI.RemoveLastAndReorder();
+    }
+
+    public Customer ServeCustomer(){
+        return customers.Last();
+    }
+
+    private int RandomRangeExcept(int min, int max, int except=-1)  {
+        var exclude = new HashSet<int>() { except };
+        var range = Enumerable.Range(min, max).Where(i => !exclude.Contains(i));
+
+        var rand = new System.Random();
+        int index = rand.Next(0, (max-1) - exclude.Count);
+        return range.ElementAt(index);
     }
 }
