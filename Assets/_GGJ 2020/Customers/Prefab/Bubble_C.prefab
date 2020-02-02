@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7879121635318085524}
   - component: {fileID: 1535544961940863239}
   m_Layer: 0
-  m_Name: Customer 11
-  m_TagString: Customer11
+  m_Name: Bubble_C
+  m_TagString: Customer8
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

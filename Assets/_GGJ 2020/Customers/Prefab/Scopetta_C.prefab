@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7879121635318085524}
   - component: {fileID: 1535544961940863239}
   m_Layer: 0
-  m_Name: Customer 4
+  m_Name: Scopetta_C
   m_TagString: Customer4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67588340b9ca3ca449851b1e40f5cb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 2833506355106800405, guid: 4420273b9cbef1640abe29f3c8d39bcd,
+  weaponPrefab: {fileID: 8262796590439258006, guid: 770d56f23d83ecd468f04662f0ac6808,
     type: 3}
   customerIcon: {fileID: 0}
   difficulty: 2

@@ -265,6 +265,18 @@ MonoBehaviour:
   frequency: 120
   duration: 0.6
   AmplitudeAmount: 2
+--- !u!114 &323068397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2358788258477744621, guid: 84626c9a98c7de64c93bb180d87d27ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 813235201}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5502291961332b944859b0e7594495b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &347674354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -363,7 +375,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4c42ae6e422106409b1d1140cd0c7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinUI: {fileID: 323068397}
+  soundManager: {fileID: 1567199859}
   CustomersQueue: {fileID: 739104160}
+  timerUI: {fileID: 1010784104}
 --- !u!4 &482831191
 Transform:
   m_ObjectHideFlags: 0
@@ -377,6 +392,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &532932748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 532932749}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &532932749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532932748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 134.7, y: 20.1, z: 8.606586}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &710799392
 GameObject:
@@ -506,7 +551,7 @@ MonoBehaviour:
   customerIconsUI: {fileID: 241225736}
   maxCustomers: 5
   delayBetweenCustomers: 1
-  numCustomerTypes: 2
+  numCustomerTypes: 1
 --- !u!224 &763378982 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8422997190200453294, guid: 84626c9a98c7de64c93bb180d87d27ab,
@@ -761,7 +806,7 @@ PrefabInstance:
     - target: {fileID: 5365747867188108438, guid: 84626c9a98c7de64c93bb180d87d27ab,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 850
+      value: 385.42004
       objectReference: {fileID: 0}
     - target: {fileID: 5365747867707730576, guid: 84626c9a98c7de64c93bb180d87d27ab,
         type: 3}
@@ -1038,10 +1083,35 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 6093084854735745667, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6360255875025170951, guid: 84626c9a98c7de64c93bb180d87d27ab,
         type: 3}
       propertyPath: m_Name
       value: CanvasChildren
+      objectReference: {fileID: 0}
+    - target: {fileID: 7011392485503113786, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5.230011
+      objectReference: {fileID: 0}
+    - target: {fileID: 7011392485503113786, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -10.459993
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973552405058189326, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_wordSpacing
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973552405058189326, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_characterSpacing
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8422997190200453294, guid: 84626c9a98c7de64c93bb180d87d27ab,
         type: 3}
@@ -1178,6 +1248,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8843505240702629294, guid: 84626c9a98c7de64c93bb180d87d27ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2105895245, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
@@ -1309,6 +1384,18 @@ MonoBehaviour:
   pauseMenu: {fileID: 1861215466}
   winMenu: {fileID: 1919119015}
   loseMenu: {fileID: 1391544104}
+--- !u!114 &1010784104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4880318334759788983, guid: 84626c9a98c7de64c93bb180d87d27ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 813235201}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90321d9439a17654d95a205442d98465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1034499962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,6 +1629,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1567199859 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1726423566184606879, guid: de3f9d6c0345d314cab2d11acc7be128,
+    type: 3}
+  m_PrefabInstance: {fileID: 347674354}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4950e2c23d67f8c4bb34080225150efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1834563542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,11 +1672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToPool:
   - amountToPool: 5
-    objectToPool: {fileID: 741740414502328269, guid: a49cd4f8ec541da43801cb3330b584be,
-      type: 3}
-    shouldExpand: 1
-  - amountToPool: 5
-    objectToPool: {fileID: 8750550759037820032, guid: 7c31c3a7273d24247947c7dcc8ac8ca1,
+    objectToPool: {fileID: 8750550759037820032, guid: 46d0b66d1c78bea4092f22c8654c7111,
       type: 3}
     shouldExpand: 1
 --- !u!4 &1834563544

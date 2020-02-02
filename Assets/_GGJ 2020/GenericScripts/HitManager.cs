@@ -61,13 +61,6 @@ public class HitManager : MonoBehaviour
         activeTargetSpawner.SpawnAfterDelay(1);
     }
 
-    void OnCompleate()
-    {
-        OnCompletWeapon?.Invoke(weapon);
-        //weapon = customersQueue.NextCustomer().currentSword;
-    }
-
-
     bool PointInsideHitArea(Vector3 targetPosition) {
         return Vector3.Distance(targetPosition, transform.position) < hitRange;
     }

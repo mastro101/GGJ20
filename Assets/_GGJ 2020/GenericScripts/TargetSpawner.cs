@@ -74,7 +74,7 @@ public class TargetSpawner : MonoBehaviour
         var range = Enumerable.Range(min, max).Where(i => !exclude.Contains(i));
 
         var rand = new System.Random();
-        int index = rand.Next(0, (max-1) - exclude.Count);
+        int index = rand.Next(0, (max) - exclude.Count);
         return range.ElementAt(index);
     }
 

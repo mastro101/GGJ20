@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7879121635318085524}
   - component: {fileID: 1535544961940863239}
   m_Layer: 0
-  m_Name: Customer 3
-  m_TagString: Customer3
+  m_Name: LightSaber_C
+  m_TagString: Customer5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67588340b9ca3ca449851b1e40f5cb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 1262251379714884601, guid: 1b1c795cf6990d4418f8668bc1b5106c,
+  weaponPrefab: {fileID: 4519902241295490021, guid: 84748091b640b95439136f48e414270e,
     type: 3}
   customerIcon: {fileID: 0}
   difficulty: 2
