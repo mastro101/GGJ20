@@ -4,17 +4,38 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour
 {
-    [SerializeField] SwordMovement weaponPrefab;
+    public GameObject weaponPrefab;
     public Sprite customerIcon;
     // Temporaneamente pubblico finchè non sarà calcolata dai valori della spada
-    public int difficult;
-    //
-    [HideInInspector] public SwordMovement currentSword;
+    public int difficulty;
 
-    public SwordMovement InstantiateSword(Vector2 spawnPosition)
+
+    private GameObject weapon;
+    void Awake(){
+        weapon = Instantiate(weaponPrefab, new Vector3(0,0,0), Quaternion.identity);
+        weapon.transform.parent=gameObject.transform;
+    }
+
+    
+
+    public int GetDifficulty(){
+        return difficulty;
+    }
+
+    public void Activate(Vector2 spawnPosition){
+        gameObject.SetActive(true);
+        weapon.SetActive(true);
+        PlaceWeaponInWorld(spawnPosition);
+    }
+
+    public void Deactivate(){
+        gameObject.SetActive(false);
+        weapon.SetActive(false);
+    }
+
+    private void PlaceWeaponInWorld(Vector2 spawnPosition)
     {
-        var weaponInfo=weaponPrefab.GetComponent<WeaponInfo>();
-        currentSword = Instantiate(weaponPrefab, spawnPosition+weaponInfo.offset, Quaternion.identity).GetComponent<SwordMovement>();
-        return currentSword;
+        var weaponInfo=weapon.GetComponent<WeaponInfo>();
+        weapon.transform.position=spawnPosition+weaponInfo.offset;
     }
 }

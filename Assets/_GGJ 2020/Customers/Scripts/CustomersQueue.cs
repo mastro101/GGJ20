@@ -7,21 +7,10 @@ public class CustomersQueue : MonoBehaviour
     [SerializeField] Transform weaponSpawnPoint;
     public CustomerIconsUI customerIconsUI;
     
-    [SerializeField]
-    [Tooltip("è moltiplicato per la difficoltà della spada")] 
-    float timeForNextCustomer = 1;
-
-    public List<Customer> customers = new List<Customer>();
-    [HideInInspector] public float timer;
+    private List<Customer> customers = new List<Customer>();
 
     Customer oldCustomer = null;
-    bool first;
-
-    private void Awake()
-    {
-        first = true;
-    }
-
+    public int numCustomerTypes;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -35,11 +24,11 @@ public class CustomersQueue : MonoBehaviour
         int l = 10;
         for (int i = 0; i < l; i++)
         {
-            randomInt = Random.Range(1, customers.Count + 1);
+            randomInt = Random.Range(1, numCustomerTypes + 1);
             customer = PoolManager.SharedInstance.GetPooledObjectWithoutInstantiate("Customer" + randomInt).GetComponent<Customer>();
             if (oldCustomer != null)
             {
-                if (oldCustomer.difficult == customer.difficult)
+                if (oldCustomer.GetDifficulty() == customer.GetDifficulty())
                 {
                     if (i == l - 1)
                         customer = PoolManager.SharedInstance.GetPooledObject("Customer1").GetComponent<Customer>();
@@ -53,52 +42,25 @@ public class CustomersQueue : MonoBehaviour
             }
         }
 
-        customer.gameObject.SetActive(true);
-        SpawnSword(customer);
-        customer.currentSword.gameObject.SetActive(true);
+        customer.Activate(weaponSpawnPoint.position);
+
         oldCustomer = customer;
         customers.Add(customer);
-  
-        if (corutineNextCustomer != null)
-            StopCoroutine(corutineNextCustomer);
-        corutineNextCustomer = CorutineNextCustomer();
-        StartCoroutine(corutineNextCustomer);
+        customerIconsUI.AddCustomer(customer);
+
         return customer;
     }
 
-    public void SpawnSword(Customer customer)
+    public void NextCustomer()
     {
-        customer.InstantiateSword(weaponSpawnPoint.position);
-        customer.currentSword.gameObject.SetActive(false);
-    }
-
-    public Customer NextCustomer()
-    {
-        if(customers.Count == 0 || customers.Count == 1)
-            AddCustomer();
-
-        if (first)
-        {
-            first = false;
-            return customers[0];
-        }
-        Customer lastCustomer = customers[0];
-        lastCustomer.currentSword.gameObject.SetActive(false);
-        customers.Remove(customers[0]);
-        lastCustomer.transform.SetParent(null);
-        lastCustomer.gameObject.SetActive(false);
-        return customers[0];
-    }
-
-    IEnumerator corutineNextCustomer;
-    IEnumerator CorutineNextCustomer()
-    {
-        timer = timeForNextCustomer * oldCustomer.difficult;
-        while (timer > 0)
-        {
-            timer -= Time.deltaTime;
-            yield return null;
-        }
         AddCustomer();
+
+        if(customers.Count>1){
+            Customer lastCustomer = customers[0];
+            lastCustomer.Deactivate();
+            customers.Remove(lastCustomer);
+         
+            customerIconsUI.RemoveFirst();
+        }
     }
 }

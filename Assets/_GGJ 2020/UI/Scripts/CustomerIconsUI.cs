@@ -2,36 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Linq;
 public class CustomerIconsUI : MonoBehaviour
-{
-	
-	Image[] customersUI;
-	int nCustomers = 0;
-	public Sprite placeHolder;
-	
+{	
+	List<GameObject> customersUI;
+	private int availableSpots;
+
     void Start()
     {
-        customersUI = new Image[5];
-		for(int i=0; i<5; i++) {
-			customersUI[i] = GameObject.Find("customer"+i.ToString()).GetComponent<Image>();
-		}
+		customersUI=new List<GameObject>();
+		foreach (Transform child in transform){
+			customersUI.Add(child.gameObject);
+			child.gameObject.SetActive(false);	
+		}		
+
+		UpdateAvailableSpots();				
     }
 
-    void FixedUpdate()
-    {
-        int newNCustomers=GameObject.Find("GameManager").GetComponent<CustomersQueue>().customers.Count;
-		if(newNCustomers!=nCustomers) {
-			for(int j=0; j<5; j++) {
-				if(j>=(newNCustomers)) {
-					customersUI[j] = null;
-				}
-				else {
-					//customersUI[j].sprite = GameObject.Find("Customers").GetComponent<CustomersQueue>().customers[j].customerIcon;
-					customersUI[j].sprite = placeHolder;
-				}
-			}
-		}
-		nCustomers=newNCustomers;
-    }
+	private void UpdateAvailableSpots(){
+		availableSpots=customersUI.Where(c=>c.activeSelf==false).Count();
+	}
+
+	private bool AreSpotsAvailable(){
+		return availableSpots>0;
+	}
+
+	public bool AddCustomer(Customer customer){
+		if(!AreSpotsAvailable())
+			return false;
+
+		Debug.Log("Difficulty: "+customer.GetDifficulty());
+		var customerUI=customersUI.Where(c=>c.activeSelf==false).FirstOrDefault();		
+		var customerIcon=customerUI.GetComponent<CustomerIcon>();
+		customerIcon.SetBaseImage(customer.GetDifficulty());
+		customerUI.gameObject.SetActive(true);
+		UpdateAvailableSpots();		
+		return true;
+	}
+
+	public void RemoveFirst(){
+		var firstCustomerUI=customersUI.First();
+		firstCustomerUI.gameObject.SetActive(true);
+	}
 }
