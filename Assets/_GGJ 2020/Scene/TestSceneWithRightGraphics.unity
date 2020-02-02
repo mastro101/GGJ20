@@ -518,6 +518,8 @@ MonoBehaviour:
   CustomersQueue: {fileID: 739104160}
   currentTime: 0
   timerUI: {fileID: 1010784104}
+  epicPhraseFrames: []
+  epicPhrasePrefab: {fileID: 0}
 --- !u!4 &482831191
 Transform:
   m_ObjectHideFlags: 0
