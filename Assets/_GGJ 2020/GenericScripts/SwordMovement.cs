@@ -12,6 +12,8 @@ public class SwordMovement : MonoBehaviour
 
     public float timeBeforeNextMovement=0;
 
+    EffectConteiner effectConteiner;
+
     private float LeftLimit;
     private float RightLimit;
 	
@@ -24,10 +26,11 @@ public class SwordMovement : MonoBehaviour
         RightLimit=startingPos;
 		
 		soundManager=GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        effectConteiner = GameObject.Find("EffectConteiner").GetComponent<EffectConteiner>();
     }
   
     void Update()
-    {    
+    {
         var stickDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         HandleMovement(stickDirection);
     }
@@ -40,9 +43,19 @@ public class SwordMovement : MonoBehaviour
                 if(stickDirection.x>0.5f && (currentPos+(range/steps))<=RightLimit){
                     MovementHandler((range/steps));
                     StartCoroutine(AllowNextMovement());
+                    if (effectConteiner != null)
+                    {
+                        effectConteiner.moveEffect.Play();
+                        effectConteiner.moveEffect.GetComponent<SpriteRenderer>().flipX = false;
+                    }
                 }else if(stickDirection.x<-0.5f && (currentPos-(range/steps))>=LeftLimit){
                     MovementHandler(-(range/steps));
                     StartCoroutine(AllowNextMovement());
+                    if (effectConteiner != null)
+                    {
+                        effectConteiner.moveEffect.Play();
+                        effectConteiner.moveEffect.GetComponent<SpriteRenderer>().flipX = true;
+                    }
                 }                   
             }           
         }
