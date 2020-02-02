@@ -7,27 +7,12 @@ public class WeaponLifeUI : MonoBehaviour
 {
     [SerializeField] Image WeaponLifeImage;
 
-    private void Start()
-    {
-        WeaponLifeImage.fillAmount = 0;
-        //HitManager.SharedInstance.OnCorrectHit += FIllAddLifeImage;
-        HitManager.SharedInstance.OnCompletWeapon += ResetFill;
-    }
-
-    void ResetFill(WeaponInfo _weapon)
-    {
+    public void Reset(){
         WeaponLifeImage.fillAmount = 0;
     }
 
-    // public void FillTotalLifeImage(WeaponInfo _weapon)
-    // {
-    //     int delta = 1 / _weapon.maxLife;
-    //     WeaponLifeImage.fillAmount += delta;
-    // }
-
-    // public void FIllAddLifeImage(WeaponInfo _weapon)
-    // {
-    //     int delta = 1 / _weapon.maxLife;
-    //     WeaponLifeImage.fillAmount = delta * _weapon.currentLife;
-    // }
+    public void SetFillAmount(float value)
+    {
+        WeaponLifeImage.fillAmount = 1-value;
+    }
 }

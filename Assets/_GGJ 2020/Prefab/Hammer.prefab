@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 90
   steps: 3
-  timeBeforeNextMovement: 0.5
+  timeBeforeNextMovement: 0.1
 --- !u!114 &883119242844421527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequence:
   - {fileID: 21300000, guid: 25103d5e56fdd8a4db23ddf1e7b8c436, type: 3}
-  - {fileID: 21300000, guid: 1a89e885084eb154788e62c0479c24d7, type: 3}
   - {fileID: 21300000, guid: 08d1d7fa125eeab47b1fa933dfb3f3c9, type: 3}
+  - {fileID: 21300000, guid: 1a89e885084eb154788e62c0479c24d7, type: 3}
   offset: {x: 40, y: 0}
   Value: 5
   maxLife: 6

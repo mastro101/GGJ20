@@ -34,7 +34,8 @@ public class TargetSpawner : MonoBehaviour
     }
 
     public void SpawnAfterDelay(float delay){
-        StartCoroutine(SpawnAfterDelayCoroutine(delay));
+        if(gameObject.activeSelf)
+            StartCoroutine(SpawnAfterDelayCoroutine(delay));
     }
     
     public IEnumerator SpawnAfterDelayCoroutine(float delay){

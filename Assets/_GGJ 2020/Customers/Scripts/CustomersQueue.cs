@@ -38,7 +38,6 @@ public class CustomersQueue : MonoBehaviour
 	public IEnumerator FillQueue(){
         int counter=0;
         while(customers.Count<maxCustomers){
-            Debug.Log(++counter);
             AddCustomer();
             yield return new WaitForSeconds(delayBetweenCustomers);
         }
@@ -51,7 +50,7 @@ public class CustomersQueue : MonoBehaviour
     public void RemoveLast(){
         var lastCustomer=customers.Last();
         customers.Remove(lastCustomer);
-        lastCustomer.gameObject.SetActive(false);
+        lastCustomer.Deactivate();
         customerIconsUI.RemoveLastAndReorder();
     }
 

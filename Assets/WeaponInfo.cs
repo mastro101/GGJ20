@@ -13,23 +13,28 @@ public class WeaponInfo : MonoBehaviour
     public float Value;
     public int maxLife;
     private int currentLife;
+    int counter=1;
     private Action OnRepaired;
+    private bool isFixed;
 
     private int currentStep=1;
     private SpriteRenderer spriteRenderer;
 
-    void Start(){
-        currentLife=maxLife;
+    void Awake(){      
         spriteRenderer = GetComponent<SpriteRenderer>();
+        Reset();
     }
 
     public void RegisterToOnRepairedEvent(Action action){
         OnRepaired=action;
     }
 
-    public void ResetEvents(){
+    public void Reset(){
         currentLife=maxLife;
+        isFixed=false;
         OnRepaired=null;
+        currentStep=counter=1;
+        spriteRenderer.sprite=sequence[0];
     }
 
     public void OnHit(){
@@ -37,11 +42,20 @@ public class WeaponInfo : MonoBehaviour
         if(sequence.Count!=0 && counter!=sequence.Count)
             ChangeSprite();
 
-        if(currentLife<=0)
+        if(currentLife<=0){
             OnRepaired();
+            isFixed=true;
+        }          
     }
 
-    int counter=1;
+
+    public float GetLifeAmount(){
+        return (float)currentLife/maxLife;
+    }
+
+    public bool IsFixed(){
+        return isFixed;
+    }
     private void ChangeSprite(){
         if(currentStep==counter && currentLife<=(maxLife-counter*(maxLife/sequence.Count))){
             spriteRenderer.sprite=sequence[currentStep];

@@ -7,18 +7,27 @@ public class GameManager : MonoBehaviour
     
     private float Money;
     public CoinUI coinUI;
+    public WeaponLifeUI weaponLifeUI;
+
+
     public SoundManager soundManager;
     public CustomersQueue CustomersQueue;
+    
 
     public TimerUI timerUI;
     private bool isPlaying;
 
     void Start()
     {
-        timerUI.SetTimerText(0);
-        coinUI.SetMoneyAmount(0);
+        ResetUI();
     }
     
+    private void ResetUI(){
+        timerUI.SetTimerText(0);
+        coinUI.SetMoneyAmount(0);
+        weaponLifeUI.Reset();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -43,7 +52,7 @@ public class GameManager : MonoBehaviour
         var customer=CustomersQueue.ServeCustomer();
         var weaponInfo=customer.GetWeapon().GetComponent<WeaponInfo>();
         HitManager.SharedInstance.SetWeapon(weaponInfo);
-        weaponInfo.ResetEvents();
+        weaponInfo.Reset();
         weaponInfo.RegisterToOnRepairedEvent(()=>{
             Money+=weaponInfo.Value;
             coinUI.SetMoneyAmount(Money);
@@ -58,7 +67,9 @@ public class GameManager : MonoBehaviour
     private IEnumerator RemoveLastAndGetNewCustomer(){
         isPlaying=false;
         CustomersQueue.RemoveLast();
+        ResetUI();
         yield return new WaitForSeconds(1);
+        weaponLifeUI.Reset();
         GetNextCustomer();
     }
 }

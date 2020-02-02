@@ -5,17 +5,15 @@ using UnityEngine;
 
 public class HitManager : MonoBehaviour
 {
+    public WeaponLifeUI weaponLifeUI;
     public static HitManager SharedInstance;
     public float hitRange;
     public CameraShake cameraShake;
     private TargetSpawner activeTargetSpawner;
     CustomersQueue customersQueue;
     WeaponInfo weapon;
-
-   
-
-    public System.Action<WeaponInfo> OnCorrectHit;
-    public System.Action<WeaponInfo> OnCompletWeapon;
+    
+    public ChargeManager chargeManager;
 	
 	private SoundManager soundManager;
 
@@ -32,7 +30,6 @@ public class HitManager : MonoBehaviour
     private void Start()
     {
         customersQueue = FindObjectOfType<CustomersQueue>();
-        //weapon = customersQueue.NextCustomer().currentSword;
 		soundManager=GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
@@ -41,24 +38,29 @@ public class HitManager : MonoBehaviour
     }
 
     public void OnHit(){
-        if(activeTargetSpawner==null) return;
-        var target = activeTargetSpawner.GetActiveTarget();     
+        if(activeTargetSpawner==null) 
+            return;
         
+        cameraShake.StartXShake();
+        cameraShake.StartYShake();
+
+        var target = activeTargetSpawner.GetActiveTarget();     
+
         if(PointInsideHitArea(target.transform.position)){
             Debug.Log("COLPITO");
 			
 			//play suono relativo alla corretta potenza
 			soundManager.Play("Colpo1");			
             weapon.OnHit();
+            weaponLifeUI.SetFillAmount(weapon.GetLifeAmount());
 
         }else{
             Debug.Log("MISS");
 			soundManager.Play("ColpoSbagliato");
         }
         
-        cameraShake.StartXShake();
-        cameraShake.StartYShake();
-        activeTargetSpawner.SpawnAfterDelay(1);
+        if(!weapon.IsFixed())
+            activeTargetSpawner.SpawnAfterDelay(1);
     }
 
     bool PointInsideHitArea(Vector3 targetPosition) {
