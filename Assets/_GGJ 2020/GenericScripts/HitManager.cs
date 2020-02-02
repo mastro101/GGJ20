@@ -26,7 +26,7 @@ public class HitManager : MonoBehaviour
     private void Start()
     {
         customersQueue = FindObjectOfType<CustomersQueue>();
-        weapon = customersQueue.NextCustomer().currentSword;
+        //weapon = customersQueue.NextCustomer().currentSword;
     }
 
     public void OnHit(){
@@ -54,7 +54,7 @@ public class HitManager : MonoBehaviour
     void OnCompleate()
     {
         OnCompletWeapon?.Invoke(weapon);
-        weapon = customersQueue.NextCustomer().currentSword;
+        //weapon = customersQueue.NextCustomer().currentSword;
     }
 
 
