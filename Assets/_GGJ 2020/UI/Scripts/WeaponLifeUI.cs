@@ -11,6 +11,12 @@ public class WeaponLifeUI : MonoBehaviour
     {
         WeaponLifeImage.fillAmount = 0;
         HitManager.SharedInstance.OnCorrectHit += FIllAddLifeImage;
+        HitManager.SharedInstance.OnCompletWeapon += ResetFill;
+    }
+
+    void ResetFill(WeaponInfo _weapon)
+    {
+        WeaponLifeImage.fillAmount = 0;
     }
 
     public void FillTotalLifeImage(WeaponInfo _weapon)
