@@ -10,7 +10,7 @@ public class CustomerIconsUI : MonoBehaviour
 	Queue<GameObject> activeCustomersUI;
 	private int availableSpots;
 
-    void Start()
+    void Awake()
     {
 		activeCustomersUI=new Queue<GameObject>();
 		customersUI=new List<GameObject>();

@@ -17,29 +17,28 @@ public class CustomersQueue : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-		           AddCustomer();
+		    AddCustomer();
 
         if (Input.GetKeyDown(KeyCode.C))
             RemoveLast();
     }
 
     int prevType=-1;
-	public Customer AddCustomer()
+	public void AddCustomer()
     {
 		var randomInt = RandomRangeExcept(1,2,prevType);
 
         var customer = PoolManager.SharedInstance.GetPooledObject("Customer" + randomInt).GetComponent<Customer>();
         prevType=customer.GetDifficulty();
 
-        customer.Activate(weaponSpawnPoint.position);
 		customers.Add(customer);
-		        customerIconsUI.SetCustomerIcon(customer);
-
-        return customer;
+		customerIconsUI.SetCustomerIcon(customer);
     }
 	
 	public IEnumerator FillQueue(){
-        while(customers.Count<(maxCustomers+1)){
+        int counter=0;
+        while(customers.Count<maxCustomers){
+            Debug.Log(++counter);
             AddCustomer();
             yield return new WaitForSeconds(delayBetweenCustomers);
         }
@@ -57,7 +56,9 @@ public class CustomersQueue : MonoBehaviour
     }
 
     public Customer ServeCustomer(){
-        return customers.Last();
+        var customer=customers.Last();
+        customer.Activate(weaponSpawnPoint.position);
+        return customer;
     }
 
     private int RandomRangeExcept(int min, int max, int except=-1)  {

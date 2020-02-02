@@ -121,32 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &166258553 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5365747868537361437, guid: 84626c9a98c7de64c93bb180d87d27ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 813235201}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &166258557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166258553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce1ae6858cc2f9449a039ee3be89ff4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  greenTopBanner: {fileID: 0}
-  yellowTopBanner: {fileID: 0}
-  orangeTopBanner: {fileID: 0}
-  redTopBanner: {fileID: 0}
-  green: {fileID: 21300000, guid: 72db951b42dfc014ea5770f65b922c64, type: 3}
-  yellow: {fileID: 21300000, guid: a6770063719564b4087a4ed42869930c, type: 3}
-  orange: {fileID: 21300000, guid: 3332073f36ec08148827606b79427385, type: 3}
-  red: {fileID: 21300000, guid: d20eefa58b9a86a45b50b2e558c893f7, type: 3}
 --- !u!114 &241225736 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5683597186907854310, guid: 84626c9a98c7de64c93bb180d87d27ab,
@@ -273,7 +247,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &307248597
 MonoBehaviour:
@@ -336,7 +310,7 @@ PrefabInstance:
     - target: {fileID: 1726423566184606876, guid: de3f9d6c0345d314cab2d11acc7be128,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1726423566184606876, guid: de3f9d6c0345d314cab2d11acc7be128,
         type: 3}
@@ -397,39 +371,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482831189}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 163.8, y: 25.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &670853042 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5365747867915455637, guid: 84626c9a98c7de64c93bb180d87d27ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 813235201}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &670853046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670853042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce1ae6858cc2f9449a039ee3be89ff4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  greenTopBanner: {fileID: 0}
-  yellowTopBanner: {fileID: 0}
-  orangeTopBanner: {fileID: 0}
-  redTopBanner: {fileID: 0}
-  green: {fileID: 21300000, guid: 72db951b42dfc014ea5770f65b922c64, type: 3}
-  yellow: {fileID: 21300000, guid: a6770063719564b4087a4ed42869930c, type: 3}
-  orange: {fileID: 21300000, guid: 3332073f36ec08148827606b79427385, type: 3}
-  red: {fileID: 21300000, guid: d20eefa58b9a86a45b50b2e558c893f7, type: 3}
 --- !u!1 &710799392
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +457,7 @@ Transform:
   m_LocalScale: {x: 20.427979, y: 20.427979, z: 20.427979}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &739104158
 GameObject:
@@ -540,7 +488,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &739104160
 MonoBehaviour:
@@ -575,62 +523,122 @@ PrefabInstance:
     - target: {fileID: 166258557, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
       propertyPath: greenTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: b749662d4dc67544181edefe2a9a0d07,
+      objectReference: {fileID: 21300000, guid: 18542cabd5156a742a605591147bee2d,
         type: 3}
     - target: {fileID: 166258557, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
       propertyPath: redTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: 388b3af985a221e4787c2e309ab5a286,
+      objectReference: {fileID: 21300000, guid: 79f7a3fabda25f74fb15da2a95fed59f,
         type: 3}
     - target: {fileID: 166258557, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
       propertyPath: yellowTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: a49f7a959a19e7a48af7e75c0b701138,
+      objectReference: {fileID: 21300000, guid: d048f247aa63d04468a662a63195158f,
         type: 3}
     - target: {fileID: 166258557, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
       propertyPath: orangeTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: e95eb557387096348992dfddc95d7208,
+      objectReference: {fileID: 21300000, guid: a64691c5189f9e84fac01ec6530a904f,
+        type: 3}
+    - target: {fileID: 166258557, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
+      propertyPath: green
+      value: 
+      objectReference: {fileID: 21300000, guid: 80fa90a63e2b5e244958926a043b697e,
+        type: 3}
+    - target: {fileID: 166258557, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
+      propertyPath: red
+      value: 
+      objectReference: {fileID: 21300000, guid: 28088ebe08a893643a9740c6478dbec9,
+        type: 3}
+    - target: {fileID: 166258557, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
+      propertyPath: yellow
+      value: 
+      objectReference: {fileID: 21300000, guid: 2321ee6c3c728704ea0ef46bd522e288,
+        type: 3}
+    - target: {fileID: 166258557, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
+      propertyPath: orange
+      value: 
+      objectReference: {fileID: 21300000, guid: 0fcc0cf1aff694e4b8b9e9aa6aecd8e5,
         type: 3}
     - target: {fileID: 670853046, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
       propertyPath: greenTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: b749662d4dc67544181edefe2a9a0d07,
+      objectReference: {fileID: 21300000, guid: 18542cabd5156a742a605591147bee2d,
         type: 3}
     - target: {fileID: 670853046, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
       propertyPath: redTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: 388b3af985a221e4787c2e309ab5a286,
+      objectReference: {fileID: 21300000, guid: 79f7a3fabda25f74fb15da2a95fed59f,
         type: 3}
     - target: {fileID: 670853046, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
       propertyPath: yellowTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: a49f7a959a19e7a48af7e75c0b701138,
+      objectReference: {fileID: 21300000, guid: d048f247aa63d04468a662a63195158f,
         type: 3}
     - target: {fileID: 670853046, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
       propertyPath: orangeTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: e95eb557387096348992dfddc95d7208,
+      objectReference: {fileID: 21300000, guid: a64691c5189f9e84fac01ec6530a904f,
+        type: 3}
+    - target: {fileID: 670853046, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
+      propertyPath: green
+      value: 
+      objectReference: {fileID: 21300000, guid: 80fa90a63e2b5e244958926a043b697e,
+        type: 3}
+    - target: {fileID: 670853046, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
+      propertyPath: yellow
+      value: 
+      objectReference: {fileID: 21300000, guid: 2321ee6c3c728704ea0ef46bd522e288,
+        type: 3}
+    - target: {fileID: 670853046, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
+      propertyPath: orange
+      value: 
+      objectReference: {fileID: 21300000, guid: 0fcc0cf1aff694e4b8b9e9aa6aecd8e5,
+        type: 3}
+    - target: {fileID: 670853046, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
+      propertyPath: red
+      value: 
+      objectReference: {fileID: 21300000, guid: 28088ebe08a893643a9740c6478dbec9,
         type: 3}
     - target: {fileID: 2046568496, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
       propertyPath: redTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: 388b3af985a221e4787c2e309ab5a286,
+      objectReference: {fileID: 21300000, guid: 79f7a3fabda25f74fb15da2a95fed59f,
         type: 3}
     - target: {fileID: 2046568496, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
       propertyPath: greenTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: b749662d4dc67544181edefe2a9a0d07,
+      objectReference: {fileID: 21300000, guid: 18542cabd5156a742a605591147bee2d,
         type: 3}
     - target: {fileID: 2046568496, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
       propertyPath: yellowTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: a49f7a959a19e7a48af7e75c0b701138,
+      objectReference: {fileID: 21300000, guid: d048f247aa63d04468a662a63195158f,
         type: 3}
     - target: {fileID: 2046568496, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
       propertyPath: orangeTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: e95eb557387096348992dfddc95d7208,
+      objectReference: {fileID: 21300000, guid: a64691c5189f9e84fac01ec6530a904f,
+        type: 3}
+    - target: {fileID: 2046568496, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
+      propertyPath: red
+      value: 
+      objectReference: {fileID: 21300000, guid: 28088ebe08a893643a9740c6478dbec9,
+        type: 3}
+    - target: {fileID: 2046568496, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
+      propertyPath: orange
+      value: 
+      objectReference: {fileID: 21300000, guid: 0fcc0cf1aff694e4b8b9e9aa6aecd8e5,
+        type: 3}
+    - target: {fileID: 2046568496, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
+      propertyPath: yellow
+      value: 
+      objectReference: {fileID: 21300000, guid: 2321ee6c3c728704ea0ef46bd522e288,
+        type: 3}
+    - target: {fileID: 2046568496, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
+      propertyPath: green
+      value: 
+      objectReference: {fileID: 21300000, guid: 80fa90a63e2b5e244958926a043b697e,
         type: 3}
     - target: {fileID: 2105895245, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
       propertyPath: greenTopBanner
@@ -676,49 +684,49 @@ PrefabInstance:
         type: 3}
       propertyPath: green
       value: 
-      objectReference: {fileID: 21300000, guid: b749662d4dc67544181edefe2a9a0d07,
+      objectReference: {fileID: 21300000, guid: 80fa90a63e2b5e244958926a043b697e,
         type: 3}
     - target: {fileID: 2421721150724968951, guid: 84626c9a98c7de64c93bb180d87d27ab,
         type: 3}
       propertyPath: yellow
       value: 
-      objectReference: {fileID: 21300000, guid: a49f7a959a19e7a48af7e75c0b701138,
+      objectReference: {fileID: 21300000, guid: 2321ee6c3c728704ea0ef46bd522e288,
         type: 3}
     - target: {fileID: 2421721150724968951, guid: 84626c9a98c7de64c93bb180d87d27ab,
         type: 3}
       propertyPath: orange
       value: 
-      objectReference: {fileID: 21300000, guid: e95eb557387096348992dfddc95d7208,
+      objectReference: {fileID: 21300000, guid: 0fcc0cf1aff694e4b8b9e9aa6aecd8e5,
         type: 3}
     - target: {fileID: 2421721150724968951, guid: 84626c9a98c7de64c93bb180d87d27ab,
         type: 3}
       propertyPath: red
       value: 
-      objectReference: {fileID: 21300000, guid: 388b3af985a221e4787c2e309ab5a286,
+      objectReference: {fileID: 21300000, guid: 28088ebe08a893643a9740c6478dbec9,
         type: 3}
     - target: {fileID: 2421721150724968951, guid: 84626c9a98c7de64c93bb180d87d27ab,
         type: 3}
       propertyPath: orangeTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: e95eb557387096348992dfddc95d7208,
+      objectReference: {fileID: 21300000, guid: a64691c5189f9e84fac01ec6530a904f,
         type: 3}
     - target: {fileID: 2421721150724968951, guid: 84626c9a98c7de64c93bb180d87d27ab,
         type: 3}
       propertyPath: yellowTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: a49f7a959a19e7a48af7e75c0b701138,
+      objectReference: {fileID: 21300000, guid: d048f247aa63d04468a662a63195158f,
         type: 3}
     - target: {fileID: 2421721150724968951, guid: 84626c9a98c7de64c93bb180d87d27ab,
         type: 3}
       propertyPath: greenTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: b749662d4dc67544181edefe2a9a0d07,
+      objectReference: {fileID: 21300000, guid: 18542cabd5156a742a605591147bee2d,
         type: 3}
     - target: {fileID: 2421721150724968951, guid: 84626c9a98c7de64c93bb180d87d27ab,
         type: 3}
       propertyPath: redTopBanner
       value: 
-      objectReference: {fileID: 21300000, guid: 388b3af985a221e4787c2e309ab5a286,
+      objectReference: {fileID: 21300000, guid: 79f7a3fabda25f74fb15da2a95fed59f,
         type: 3}
     - target: {fileID: 2726028432501187770, guid: 84626c9a98c7de64c93bb180d87d27ab,
         type: 3}
@@ -1170,7 +1178,8 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2105895245, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 84626c9a98c7de64c93bb180d87d27ab, type: 3}
 --- !u!1 &915720500
 GameObject:
@@ -1266,7 +1275,7 @@ RectTransform:
   m_Children:
   - {fileID: 763378982}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1364,7 +1373,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1356082557
 GameObject:
@@ -1395,7 +1404,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1356082559
 MonoBehaviour:
@@ -1467,7 +1476,7 @@ Transform:
   m_LocalScale: {x: 29.081999, y: 29.081999, z: 1.4541}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1414180492
 MonoBehaviour:
@@ -1583,7 +1592,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1861215466 stripped
 GameObject:
@@ -1597,39 +1606,13 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 813235201}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2046568492 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5365747868214781918, guid: 84626c9a98c7de64c93bb180d87d27ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 813235201}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2046568496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046568492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce1ae6858cc2f9449a039ee3be89ff4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  greenTopBanner: {fileID: 0}
-  yellowTopBanner: {fileID: 0}
-  orangeTopBanner: {fileID: 0}
-  redTopBanner: {fileID: 0}
-  green: {fileID: 21300000, guid: 72db951b42dfc014ea5770f65b922c64, type: 3}
-  yellow: {fileID: 21300000, guid: a6770063719564b4087a4ed42869930c, type: 3}
-  orange: {fileID: 21300000, guid: 3332073f36ec08148827606b79427385, type: 3}
-  red: {fileID: 21300000, guid: d20eefa58b9a86a45b50b2e558c893f7, type: 3}
 --- !u!1 &2105895241 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5365747867707730590, guid: 84626c9a98c7de64c93bb180d87d27ab,
     type: 3}
   m_PrefabInstance: {fileID: 813235201}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2105895245
+--- !u!114 &2105895243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1641,14 +1624,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce1ae6858cc2f9449a039ee3be89ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenTopBanner: {fileID: 0}
-  yellowTopBanner: {fileID: 0}
-  orangeTopBanner: {fileID: 0}
-  redTopBanner: {fileID: 0}
-  green: {fileID: 21300000, guid: 72db951b42dfc014ea5770f65b922c64, type: 3}
-  yellow: {fileID: 21300000, guid: a6770063719564b4087a4ed42869930c, type: 3}
-  orange: {fileID: 21300000, guid: 3332073f36ec08148827606b79427385, type: 3}
-  red: {fileID: 21300000, guid: d20eefa58b9a86a45b50b2e558c893f7, type: 3}
+  greenTopBanner: {fileID: 21300000, guid: 18542cabd5156a742a605591147bee2d, type: 3}
+  yellowTopBanner: {fileID: 21300000, guid: d048f247aa63d04468a662a63195158f, type: 3}
+  orangeTopBanner: {fileID: 21300000, guid: a64691c5189f9e84fac01ec6530a904f, type: 3}
+  redTopBanner: {fileID: 21300000, guid: 79f7a3fabda25f74fb15da2a95fed59f, type: 3}
+  green: {fileID: 21300000, guid: 80fa90a63e2b5e244958926a043b697e, type: 3}
+  yellow: {fileID: 21300000, guid: 2321ee6c3c728704ea0ef46bd522e288, type: 3}
+  orange: {fileID: 21300000, guid: 0fcc0cf1aff694e4b8b9e9aa6aecd8e5, type: 3}
+  red: {fileID: 21300000, guid: 28088ebe08a893643a9740c6478dbec9, type: 3}
 --- !u!1001 &140801943427474852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2025,7 +2008,7 @@ PrefabInstance:
     - target: {fileID: 140801943172313295, guid: 884bee90ade6dc04cb911955448c8ac9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 140801943172313295, guid: 884bee90ade6dc04cb911955448c8ac9,
         type: 3}

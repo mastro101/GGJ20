@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class HitManager : MonoBehaviour
 {
     public static HitManager SharedInstance;
@@ -10,6 +11,8 @@ public class HitManager : MonoBehaviour
     private TargetSpawner activeTargetSpawner;
     CustomersQueue customersQueue;
     WeaponInfo weapon;
+
+   
 
     public System.Action<WeaponInfo> OnCorrectHit;
     public System.Action<WeaponInfo> OnCompletWeapon;
@@ -22,6 +25,7 @@ public class HitManager : MonoBehaviour
 
     void Awake()
     {
+        
         SharedInstance = this;
     }
 
@@ -32,6 +36,10 @@ public class HitManager : MonoBehaviour
 		soundManager=GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
+    public void SetWeapon(WeaponInfo weapon){
+        this.weapon=weapon;
+    }
+
     public void OnHit(){
         if(activeTargetSpawner==null) return;
         var target = activeTargetSpawner.GetActiveTarget();     
@@ -40,14 +48,8 @@ public class HitManager : MonoBehaviour
             Debug.Log("COLPITO");
 			
 			//play suono relativo alla corretta potenza
-			soundManager.Play("Colpo1");
-			
-            weapon.currentLife++;
-            OnCorrectHit?.Invoke(weapon);
-            if (weapon.currentLife == weapon.maxLife)
-            {
-                OnCompleate();
-            }
+			soundManager.Play("Colpo1");			
+            weapon.OnHit();
 
         }else{
             Debug.Log("MISS");

@@ -17,7 +17,7 @@ public class CustomerIcon : MonoBehaviour
 
     private Image image;
     private Customer customer;
-    void Start(){
+    void Awake(){
         image=GetComponent<Image>();
     }
 
