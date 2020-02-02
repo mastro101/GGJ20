@@ -8,6 +8,7 @@ public class CustomersQueue : MonoBehaviour
     [SerializeField] Transform weaponSpawnPoint;
     public CustomerIconsUI customerIconsUI;
 
+    public int fixedCustomerToSpawn; 
     public int maxCustomers;
     public float delayBetweenCustomers;
     private List<Customer> customers = new List<Customer>();
@@ -26,9 +27,10 @@ public class CustomersQueue : MonoBehaviour
     int prevType=-1;
 	public void AddCustomer()
     {
-		var randomInt = RandomRangeExcept(1,2,prevType);
+		var randomInt = fixedCustomerToSpawn!=0? fixedCustomerToSpawn:RandomRangeExcept(1,2,prevType);
 
         var customer = PoolManager.SharedInstance.GetPooledObject("Customer" + randomInt).GetComponent<Customer>();
+        customer.ActivateWithoutSword();
         prevType=customer.GetDifficulty();
 
 		customers.Add(customer);
@@ -36,7 +38,6 @@ public class CustomersQueue : MonoBehaviour
     }
 	
 	public IEnumerator FillQueue(){
-        int counter=0;
         while(customers.Count<maxCustomers){
             AddCustomer();
             yield return new WaitForSeconds(delayBetweenCustomers);

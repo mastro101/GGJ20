@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     
     private void ResetUI(){
         timerUI.SetTimerText(0);
-        coinUI.SetMoneyAmount(0);
+        coinUI.SetMoneyAmount(Money);
         weaponLifeUI.Reset();
     }
 
@@ -57,9 +57,9 @@ public class GameManager : MonoBehaviour
             Money+=weaponInfo.Value;
             coinUI.SetMoneyAmount(Money);
             StartCoroutine(RemoveLastAndGetNewCustomer());
+            isPlaying=false;
         });
 
-        isPlaying=true;
         StartCoroutine(StartTimer());
     }
 

@@ -41,6 +41,8 @@ public class CustomerIconsUI : MonoBehaviour
 		var customerUI=customersUI.Where(c=>c.activeSelf==false).FirstOrDefault();		
 		var customerIcon=customerUI.GetComponent<CustomerIcon>();
 		customerIcon.ConfigIcon(customer);
+		customer.SetCustomerIconPosition(customerIcon.transform);
+
 		customerUI.gameObject.SetActive(true);
 		activeCustomersUI.Enqueue(customerUI);
 
