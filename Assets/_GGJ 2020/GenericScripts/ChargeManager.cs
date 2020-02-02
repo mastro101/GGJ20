@@ -56,6 +56,8 @@ public class ChargeManager : MonoBehaviour
     private HitManager hitManager;
 	
 	private SoundManager soundManager;
+	
+	private int power;
     
     void Start()
     {
@@ -101,7 +103,7 @@ public class ChargeManager : MonoBehaviour
         float macroAnimationTime=0;
 		
 		switch (step) {
-			case 0:
+			case 1:
 				soundManager.Play("InizioCarica");
 				break;
 			case 3:
@@ -123,8 +125,9 @@ public class ChargeManager : MonoBehaviour
             else
                 yield return null;
         }
-
+		Debug.Log(step);
         step++;
+		power=step;
         macroAnimation.isPlaying=false;
     }
 
@@ -142,22 +145,34 @@ public class ChargeManager : MonoBehaviour
 
 
     private IEnumerator PlayHitAnimation(){
-        MacroHit.Reset();
-        MacroHit.Start();
+		switch (power) {
+						case 4:
+						int n=Random.Range(0,2);
+						if(n==0) soundManager.Play("espira1");
+						if(n==1) soundManager.Play("espira2");
+						if(n==2) soundManager.Play("espira3");
+						break;
+					};
+		MacroHit.Reset();
+		MacroHit.Start();
         float macroAnimationTime=0;
         int counter=0;
         do{
             macroAnimationTime+=Time.deltaTime;
             
             if(macroAnimationTime>=MacroHit.speed){
-                if(counter==0) hitManager.OnHit();
-                if(counter==1) hitEffect.Play();
+				Debug.Log("ggik");
+                if(counter==0) hitManager.OnHit(power);
+                if(counter==1) {
+					hitEffect.Play();
+				}
                 spriteRenderer.sprite=MacroHit.GetCurrentSequence();
                 macroAnimationTime-=MacroHit.speed;
 
                 counter++;
             }
-
+			
+			
             yield return null;
         }while(!MacroHit.HasEnded);
         MacroHit.isPlaying=false;

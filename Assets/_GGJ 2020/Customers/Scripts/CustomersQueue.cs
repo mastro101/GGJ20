@@ -15,6 +15,13 @@ public class CustomersQueue : MonoBehaviour
 
     Customer oldCustomer = null;
     public int numCustomerTypes;
+	
+	private SoundManager soundManager;
+	
+	private void Start() {
+		soundManager=GameObject.Find("SoundManager").GetComponent<SoundManager>();
+	}
+	
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -35,6 +42,20 @@ public class CustomersQueue : MonoBehaviour
 
 		customers.Add(customer);
 		customerIconsUI.SetCustomerIcon(customer);
+		
+		/*int n = Random.Range(0,2);
+		switch(n){
+			case 0:*/
+			soundManager.Play("ArrivoCliente1");
+			/*break;
+			case 1:
+			soundManager.Play("ArrivoCliente2");
+			break;
+			case 2:
+			soundManager.Play("ArrivoCliente3");
+			break;
+		};*/
+		
     }
 	
 	public IEnumerator FillQueue(){
@@ -53,6 +74,9 @@ public class CustomersQueue : MonoBehaviour
         customers.Remove(lastCustomer);
         lastCustomer.Deactivate();
         customerIconsUI.RemoveLastAndReorder();
+		
+		soundManager.Play("Vittoria1");
+		
     }
 
     public Customer ServeCustomer(){

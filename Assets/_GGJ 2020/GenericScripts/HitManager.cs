@@ -37,7 +37,7 @@ public class HitManager : MonoBehaviour
         this.weapon=weapon;
     }
 
-    public void OnHit(){
+    public void OnHit(int power){
         if(activeTargetSpawner==null) 
             return;
         
@@ -50,13 +50,39 @@ public class HitManager : MonoBehaviour
             Debug.Log("COLPITO");
 			
 			//play suono relativo alla corretta potenza
-			soundManager.Play("Colpo1");			
+			switch (power) {
+				case 1:
+				soundManager.Play("Colpo1");
+				break;
+				case 2:
+				soundManager.Play("Colpo2");
+				break;
+				case 3:
+				soundManager.Play("Colpo3");
+				break;
+				case 4:
+				soundManager.Play("Colpo4");
+				break;
+				
+			};				
             weapon.OnHit();
             weaponLifeUI.SetFillAmount(weapon.GetLifeAmount());
 
         }else{
             Debug.Log("MISS");
-			soundManager.Play("ColpoSbagliato");
+			int n = Random.Range(0,2);
+			switch (n) {
+				case 0:
+				soundManager.Play("ColpoSbagliato1");
+				break;
+				case 1:
+				soundManager.Play("ColpoSbagliato2");
+				break;
+				case 2:
+				soundManager.Play("ColpoSbagliato3");
+				break;
+			};
+			
         }
         
         if(!weapon.IsFixed())

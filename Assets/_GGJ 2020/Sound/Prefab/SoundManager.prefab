@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1726423566184606876}
   - component: {fileID: 1726423566184606879}
   m_Layer: 0
-  m_Name: Sound
+  m_Name: SoundManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Colpo1
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 42bf349a69906074fa510c68bb1ccd57, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
@@ -53,7 +53,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Colpo2
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 500203c3866961a43b92828a6499e4a1, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
@@ -61,7 +61,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Colpo3
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 1fce0cdff4c47e3478146195bca2e2ea, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Colpo4
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: cc303c57a72f6334892bec6dd1368a78, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
@@ -77,7 +77,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: InizioCarica
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: f119e8e7400864f448fbd441746ca3b0, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
@@ -93,24 +93,24 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: RilascioColpo
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 5924c052ed7c46046b2bf334fb449f92, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
-  - name: ColpoSbagliato
-    clip: {fileID: 0}
+  - name: ColpoSbagliato1
+    clip: {fileID: 8300000, guid: 15c67cf2b91da2e4ba868bbfaa466d68, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
-  - name: ScorrimentoArma
-    clip: {fileID: 0}
-    volume: 0.75
+  - name: ScorrimentoArma1
+    clip: {fileID: 8300000, guid: cd4ff587f6fe4b44fb853f395d81ba1f, type: 3}
+    volume: 0.4
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -132,8 +132,8 @@ MonoBehaviour:
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
-  - name: ArrivoCliente
-    clip: {fileID: 0}
+  - name: ArrivoCliente1
+    clip: {fileID: 8300000, guid: 2b08469d534e90644b83bc45b7e9b14c, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
@@ -141,7 +141,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Sconfitta
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 639eb9283c527a14787e0a9992aa16cc, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
@@ -149,15 +149,95 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Vittoria1
-    clip: {fileID: 0}
-    volume: 0.75
+    clip: {fileID: 8300000, guid: 53fd9caf09d4f704aa0f6bfb21f3d81b, type: 3}
+    volume: 0.9
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 0
     source: {fileID: 0}
   - name: Vittoria2
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: d03599913bfc4b643a01b2d82ab58277, type: 3}
+    volume: 0.6
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: ColpoSbagliato2
+    clip: {fileID: 8300000, guid: 60de86ef357b660478e0b4e03b32632e, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: ColpoSbagliato3
+    clip: {fileID: 8300000, guid: bcb8afdb42e26a14b9e6fac8cf48b9f5, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: espira1
+    clip: {fileID: 8300000, guid: 08d067158026a5746bdac9486b408d93, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: espira2
+    clip: {fileID: 8300000, guid: 23930e2651782c0458cc68785a5d5ad3, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: espira3
+    clip: {fileID: 8300000, guid: 67da93c48758dd54a8f232f4d1e346a5, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: ScorrimentoArma2
+    clip: {fileID: 8300000, guid: 67da93c48758dd54a8f232f4d1e346a5, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: ScorrimentoArma3
+    clip: {fileID: 8300000, guid: 67da93c48758dd54a8f232f4d1e346a5, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: ArrivoCliente2
+    clip: {fileID: 8300000, guid: 52234b97e64606d43a49ff4758e8125b, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: ArrivoCliente3
+    clip: {fileID: 8300000, guid: 87dc6eb119c957f46819b99ec4c5db10, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Vittoria3
+    clip: {fileID: 8300000, guid: 53fd9caf09d4f704aa0f6bfb21f3d81b, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
