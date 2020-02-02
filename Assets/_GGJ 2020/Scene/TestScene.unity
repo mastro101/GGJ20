@@ -584,10 +584,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSpawnPoint: {fileID: 1356082558}
   customerIconsUI: {fileID: 241225736}
-  fixedCustomerToSpawn: 2
+  fixedCustomerToSpawn: 0
   maxCustomers: 5
   delayBetweenCustomers: 1
-  numCustomerTypes: 6
+  numCustomerTypes: 2
 --- !u!224 &763378982 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8422997190200453294, guid: 84626c9a98c7de64c93bb180d87d27ab,
