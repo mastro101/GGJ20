@@ -26,7 +26,7 @@ public class HitManager : MonoBehaviour
     private void Start()
     {
         customersQueue = FindObjectOfType<CustomersQueue>();
-        //weapon = customersQueue.NextCustomer().currentSword;
+        weapon = customersQueue.NextCustomer().currentSword;
     }
 
     public void OnHit(){
@@ -39,7 +39,7 @@ public class HitManager : MonoBehaviour
             OnCorrectHit?.Invoke(weapon);
             if (weapon.currentLife == weapon.maxLife)
             {
-                OnComplete();
+                OnCompleate();
             }
 
         }else{
@@ -51,10 +51,10 @@ public class HitManager : MonoBehaviour
         activeTargetSpawner.SpawnAfterDelay(1);
     }
 
-    void OnComplete()
+    void OnCompleate()
     {
         OnCompletWeapon?.Invoke(weapon);
-        //weapon = customersQueue.NextCustomer().currentSword;
+        weapon = customersQueue.NextCustomer().currentSword;
     }
 
 

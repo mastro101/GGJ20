@@ -6,7 +6,7 @@ public class Customer : MonoBehaviour
 {
     public GameObject weaponPrefab;
     public Sprite customerIcon;
-
+    // Temporaneamente pubblico finchè non sarà calcolata dai valori della spada
     public int difficulty;
 
 
@@ -15,6 +15,8 @@ public class Customer : MonoBehaviour
         weapon = Instantiate(weaponPrefab, new Vector3(0,0,0), Quaternion.identity);
         weapon.transform.parent=gameObject.transform;
     }
+
+    
 
     public int GetDifficulty(){
         return difficulty;

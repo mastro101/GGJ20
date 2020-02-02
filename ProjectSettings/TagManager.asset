@@ -7,7 +7,6 @@ TagManager:
   - Customer1
   - Customer2
   - Customer3
-  - weapon
   layers:
   - Default
   - TransparentFX
