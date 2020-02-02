@@ -205,7 +205,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: ScorrimentoArma2
-    clip: {fileID: 8300000, guid: 67da93c48758dd54a8f232f4d1e346a5, type: 3}
+    clip: {fileID: 8300000, guid: b4840a3bcca74f245979541841f7361e, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
@@ -213,7 +213,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: ScorrimentoArma3
-    clip: {fileID: 8300000, guid: 67da93c48758dd54a8f232f4d1e346a5, type: 3}
+    clip: {fileID: 8300000, guid: 4dda2e7f636cc144396cd953b3e33727, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
@@ -230,6 +230,14 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ArrivoCliente3
     clip: {fileID: 8300000, guid: 87dc6eb119c957f46819b99ec4c5db10, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: ScorrimentoArma4
+    clip: {fileID: 8300000, guid: 58a608f55354a6446aec199a2b7796e5, type: 3}
     volume: 0.75
     volumeVariance: 0.1
     pitch: 1
